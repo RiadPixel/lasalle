@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import Navbar from "./components/navbar";
 import Hero from "./components/Hero";
 import Loader from "./components/Loader";
+import Pricing from "./components/Pricing";
 
 function App() {
   const [isLoading, setIsLoading] = useState(true);
@@ -23,6 +24,7 @@ function App() {
         <>
           <Navbar />
           <Hero />
+          <Pricing />
         </>
       )}
     </div>
