@@ -9,6 +9,3 @@
 
 ## Theme Colors
 Primary Color: Purple (#8B5CF6)
-
-
-
