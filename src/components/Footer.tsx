@@ -13,8 +13,8 @@ import logo1 from "../assets/logos/logoLight.png";
 
 const Footer = () => {
   return (
-    <div className="p-3 sm:p-6 flex items-end">
-      <footer className="w-full bg-[#8B5CF6] to-indigo-600 text-white p-4 sm:p-6 lg:p-10 rounded-2xl sm:rounded-3xl border-2 sm:border-4 border-purple-300 shadow-2xl relative overflow-hidden">
+    <div className="w-full bg-transparent py-6 sm:py-8 md:py-4 px-2 sm:px-4 flex items-end">
+      <footer className="w-full bg-gradient-to-br from-purple-600 via-purple-700 to-purple-800 text-white p-4 sm:p-6 lg:p-10 rounded-2xl sm:rounded-3xl border-2 sm:border-4 border-purple-300 shadow-2xl relative overflow-hidden">
         {/* Animated background elements */}
         <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
           <div className="absolute top-5 sm:top-10 left-5 sm:left-10 w-12 sm:w-20 h-12 sm:h-20 bg-white bg-opacity-10 rounded-full animate-pulse"></div>
@@ -122,7 +122,9 @@ const Footer = () => {
           <div className="group">
             <h3 className="text-white font-bold mb-4 sm:mb-6 text-lg sm:text-xl flex items-center space-x-2">
               <span className="w-3 h-3 bg-yellow-400 rounded-full animate-bounce flex-shrink-0"></span>
-              <span>Menu</span>
+              <span className="text-1xl sm:text-2xl md:text-2xl lg:text-3xl font-black tracking-tight">
+                Menu
+              </span>
             </h3>
             <ul className="space-y-3 sm:space-y-4 text-white text-sm sm:text-base">
               {["Home", "Membership", "About", "Blog"].map((item, index) => (
@@ -153,7 +155,9 @@ const Footer = () => {
                 className="w-3 h-3 bg-green-400 rounded-full animate-bounce flex-shrink-0"
                 style={{ animationDelay: "75ms" }}
               ></span>
-              <span>Quick Links</span>
+              <span className="text-1xl sm:text-2xl md:text-2xl lg:text-3xl font-black tracking-tight">
+                Quick Links
+              </span>
             </h3>
             <ul className="space-y-3 sm:space-y-4 text-white text-sm sm:text-base">
               {["Login", "Register", "Contact Us", "Privacy Policy"].map(
@@ -186,7 +190,9 @@ const Footer = () => {
                 className="w-3 h-3 bg-blue-400 rounded-full animate-bounce flex-shrink-0"
                 style={{ animationDelay: "150ms" }}
               ></span>
-              <span>Operational</span>
+              <span className="text-1xl sm:text-2xl md:text-2xl lg:text-3xl font-black tracking-tight">
+                Operational
+              </span>
             </h3>
             <div className="bg-white bg-opacity-10 backdrop-blur-sm rounded-xl sm:rounded-2xl p-3 sm:p-4 space-y-3 text-white text-sm sm:text-base transform transition-all duration-300 hover:bg-white hover:bg-opacity-20 hover:scale-105">
               <div className="flex items-center space-x-2">

@@ -7,12 +7,7 @@ import Loader from "./components/Loader";
 
 import Navbar from "./components/navbar";
 
-
 import Pricing from "./components/Pricing";
-
-import Footer from "./components/Footer";
-
-
 
 function App() {
   const [isLoading, setIsLoading] = useState(true);
@@ -37,12 +32,9 @@ function App() {
           <ForYou />
           <Coaches />
 
-
           <Pricing />
 
-
           <Footer />
-
         </>
       )}
     </div>
