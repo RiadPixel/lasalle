@@ -1,8 +1,10 @@
-import { useState, useEffect } from "react";
-import Navbar from "./components/navbar";
+import { useEffect, useState } from "react";
+import Coaches from "./components/Coaches";
+import Footer from "./components/Footer";
+import ForYou from "./components/ForYou";
 import Hero from "./components/Hero";
 import Loader from "./components/Loader";
-import Footer from "./components/Footer";
+import Navbar from "./components/navbar";
 
 function App() {
   const [isLoading, setIsLoading] = useState(true);
@@ -23,6 +25,8 @@ function App() {
         <>
           <Navbar />
           <Hero />
+          <ForYou />
+          <Coaches />
           <Footer />
         </>
       )}
