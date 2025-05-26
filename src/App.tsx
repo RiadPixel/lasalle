@@ -4,13 +4,10 @@ import Footer from "./components/Footer";
 import ForYou from "./components/ForYou";
 import Hero from "./components/Hero";
 import Loader from "./components/Loader";
-
 import Navbar from "./components/navbar";
-
-
 import Pricing from "./components/Pricing";
 
-import Footer from "./components/Footer";
+
 
 
 
@@ -33,14 +30,9 @@ function App() {
         <>
           <Navbar />
           <Hero />
-
           <ForYou />
           <Coaches />
-
-
           <Pricing />
-
-
           <Footer />
 
         </>
