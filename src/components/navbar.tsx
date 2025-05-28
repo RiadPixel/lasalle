@@ -32,7 +32,7 @@ function Navbar() {
   };
 
   return (
-    <nav className={`w-full sticky top-0 z-50 transition-all duration-300 ${scrolled ? 'bg-white shadow-sm border border-gray-300 rounded-lg mt-6 mx-auto w-[84%] top-4' : 'bg-transparent top-0'}`}>
+    <nav className={`w-full sticky top-0 z-50 transition-all duration-300 ${scrolled ? 'bg-white shadow border border-gray-300 rounded-lg mt-6 mx-auto w-[85%] top-4' : 'bg-transparent top-0'}`}>
       <div className="mx-auto flex items-center justify-between py-3 px-4 md:px-6 w-full relative">
      
         <div className="md:hidden">
