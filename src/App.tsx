@@ -34,7 +34,6 @@ function App() {
           <Coaches />
 
           <Pricing />
-
           <Testimonial />
           <Footer />
         </>
