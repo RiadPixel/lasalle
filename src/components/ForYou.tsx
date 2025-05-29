@@ -42,13 +42,13 @@ export default function ForYou() {
                 className="object-cover w-full h-[80%] rounded-2xl"
               />
               <div className="p-5">
-                <div className="flex items-center mb-2 text-primary">
-                  {item.icon}
-                  <h3 className="ml-2 text-lg font-semibold">{item.title}</h3>
+                <div className="flex items-center justify-between mb-2">
+                  <h3 className="ml-2 text-lg font-semibold t">{item.title}</h3>
+                  <span className="p-2 rounded-full cursor-pointer bg-primary">
+                    {" "}
+                    {item.icon}
+                  </span>
                 </div>
-                <p className="text-sm text-gray-500">
-                  Explore more about {item.title}.
-                </p>
               </div>
             </motion.div>
           ))}
