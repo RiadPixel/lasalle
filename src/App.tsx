@@ -8,8 +8,16 @@ import Navbar from "./components/navbar";
 
 import Pricing from "./components/Pricing";
 
+
+
+
+
+
+import Pricing from "./components/Pricing";
+
 import Footer from "./components/Footer";
 import Testimonial from "./components/Testimonial";
+
 
 function App() {
   const [isLoading, setIsLoading] = useState(true);
@@ -32,9 +40,13 @@ function App() {
           <Hero />
           <ForYou />
           <Coaches />
+i
+          <Pricing />
+
 
           <Pricing />
           <Testimonial />
+
           <Footer />
         </>
       )}
