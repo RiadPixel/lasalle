@@ -32,7 +32,11 @@ function Navbar() {
   };
 
   return (
+
     <nav className={`w-full sticky top-0 z-50 transition-colors duration-300 ${scrolled ? 'bg-white shadow-md border-b border-gray-200' : 'bg-transparent'}`}>
+
+    <nav className={`w-full sticky top-0 z-50 transition-all duration-300 ${scrolled ? 'bg-white shadow border border-gray-300 rounded-lg mt-6 mx-auto w-[85%] top-4' : 'bg-transparent top-0'}`}>
+
       <div className="mx-auto flex items-center justify-between py-3 px-4 md:px-6 w-full relative">
         
         <div className="md:hidden">
@@ -47,25 +51,41 @@ function Navbar() {
 
        
         <div className="hidden md:flex items-center space-x-8 flex-grow justify-start">
+
           <a href="#" className="text-gray-700 hover:text-primary transition-colors duration-200 text-sm font-medium relative group">
+
+          <a href="#" className="text-gray-700 hover:text-purple-700 transition-colors duration-200 text-sm font-medium relative group nav-link group-[.nav-link-active]:text-purple-600">
+
             Home
-            <span className="absolute inset-x-0 bottom-0 h-0.5 bg-primary transform scale-x-0 origin-left transition-transform duration-300 group-hover:scale-x-100"></span>
+            <span className="absolute inset-x-0 bottom-0 h-[2px] bg-purple-500 transform scale-x-0 origin-left transition-transform duration-300 group-hover:scale-x-100 group-[.nav-link-active]:scale-x-100"></span>
           </a>
+
           <a href="#" className="text-gray-700 hover:text-primary transition-colors duration-200 text-sm font-medium relative group">
+
+          <a href="#" className="text-gray-700 hover:text-purple-700 transition-colors duration-200 text-sm font-medium relative group nav-link group-[.nav-link-active]:text-purple-600">
+
             Membership
-            <span className="absolute inset-x-0 bottom-0 h-0.5 bg-primary transform scale-x-0 origin-left transition-transform duration-300 group-hover:scale-x-100"></span>
+            <span className="absolute inset-x-0 bottom-0 h-[2px] bg-purple-500 transform scale-x-0 origin-left transition-transform duration-300 group-hover:scale-x-100 group-[.nav-link-active]:scale-x-100"></span>
           </a>
+
            <a href="#" className="text-gray-700 hover:text-primary transition-colors duration-200 text-sm font-medium relative group">
+
+           <a href="#" className="text-gray-700 hover:text-purple-700 transition-colors duration-200 text-sm font-medium relative group nav-link group-[.nav-link-active]:text-purple-600">
+
             About
-            <span className="absolute inset-x-0 bottom-0 h-0.5 bg-primary transform scale-x-0 origin-left transition-transform duration-300 group-hover:scale-x-100"></span>
+            <span className="absolute inset-x-0 bottom-0 h-[2px] bg-purple-500 transform scale-x-0 origin-left transition-transform duration-300 group-hover:scale-x-100 group-[.nav-link-active]:scale-x-100"></span>
           </a>
+
           <a href="#" className="text-gray-700 hover:text-primary transition-colors duration-200 text-sm font-medium relative group">
+
+          <a href="#" className="text-gray-700 hover:text-purple-700 transition-colors duration-200 text-sm font-medium relative group nav-link group-[.nav-link-active]:text-purple-600">
+
             Blog
-            <span className="absolute inset-x-0 bottom-0 h-0.5 bg-primary transform scale-x-0 origin-left transition-transform duration-300 group-hover:scale-x-100"></span>
+            <span className="absolute inset-x-0 bottom-0 h-[2px] bg-purple-500 transform scale-x-0 origin-left transition-transform duration-300 group-hover:scale-x-100 group-[.nav-link-active]:scale-x-100"></span>
           </a>
         </div>
 
-        
+
         <div className="flex-shrink-0 md:absolute md:left-1/2 md:transform md:-translate-x-1/2 hidden md:block">
           <motion.img 
             src={logo} 
@@ -76,9 +96,9 @@ function Navbar() {
           />
         </div>
 
-        
+
         <div className="hidden md:flex items-center space-x-4 flex-grow justify-end">
-          <button className="hidden md:inline-flex items-center justify-center whitespace-nowrap text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-primary text-primary-foreground hover:bg-primary/90 h-10 px-4 py-2 rounded-full">
+          <button className="hidden md:inline-flex items-center justify-center whitespace-nowrap text-sm font-medium ring-offset-background transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-purple-600 text-white hover:bg-white hover:text-purple-600 hover:border-2 hover:border-purple-600 hover:shadow-lg h-10 px-4 py-2 rounded-full">
             Contact Us
           </button>
           <div className="hidden md:flex items-center space-x-2">
@@ -110,6 +130,7 @@ function Navbar() {
             <img src={logo} alt="Your Logo" className="h-16" />
           </div>
           <div className="flex flex-col items-center space-y-8 flex-grow">
+
             <a href="#" className="text-gray-800 text-3xl font-semibold hover:text-primary transition-colors duration-200" onClick={toggleMenu}>Home</a>
             <a href="#" className="text-gray-800 text-3xl font-semibold hover:text-primary transition-colors duration-200" onClick={toggleMenu}>Membership</a>
             <a href="#" className="text-gray-800 text-3xl font-semibold hover:text-primary transition-colors duration-200" onClick={toggleMenu}>About</a>
@@ -118,6 +139,16 @@ function Navbar() {
             <div className="flex space-x-6 mt-6">
               <a href="#" className="text-gray-600 hover:text-primary transition-colors duration-200 p-2 rounded-full hover:bg-primary hover:text-primary-foreground" onClick={toggleMenu}><Instagram size={28} /></a>
               <a href="#" className="text-gray-600 hover:text-primary transition-colors duration-200 p-2 rounded-full hover:bg-primary hover:text-primary-foreground" onClick={toggleMenu}><Facebook size={28} /></a>
+
+            <a href="#" className="text-gray-800 text-3xl font-semibold hover:text-purple-700 transition-colors duration-200" onClick={toggleMenu}>Home</a>
+            <a href="#" className="text-gray-800 text-3xl font-semibold hover:text-purple-700 transition-colors duration-200" onClick={toggleMenu}>Membership</a>
+            <a href="#" className="text-gray-800 text-3xl font-semibold hover:text-purple-700 transition-colors duration-200" onClick={toggleMenu}>About</a>
+            <a href="#" className="text-gray-800 text-3xl font-semibold hover:text-purple-700 transition-colors duration-200" onClick={toggleMenu}>Blog</a>
+            <button className="bg-purple-600 text-white hover:bg-white hover:text-purple-600 hover:border-2 hover:border-purple-600 hover:shadow-lg text-xl font-bold py-3 px-6 rounded-full transition duration-300 mt-8" onClick={toggleMenu}>Contact Us</button>
+            <div className="flex space-x-6 mt-6">
+              <a href="#" className="text-gray-600 hover:text-purple-700 transition-colors duration-200 p-2 rounded-full hover:bg-primary hover:text-primary-foreground" onClick={toggleMenu}><Instagram size={28} /></a>
+              <a href="#" className="text-gray-600 hover:text-purple-700 transition-colors duration-200 p-2 rounded-full hover:bg-primary hover:text-primary-foreground" onClick={toggleMenu}><Facebook size={28} /></a>
+
             </div>
           </div>
         </motion.div>
@@ -127,3 +158,4 @@ function Navbar() {
 }
 
 export default Navbar;
+
