@@ -1,17 +1,14 @@
 import { useEffect, useState } from "react";
 import Coaches from "./components/Coaches";
-
 import ForYou from "./components/ForYou";
 import Hero from "./components/Hero";
 import Loader from "./components/Loader";
-
-
 import Pricing from "./components/Pricing";
-
 import Footer from "./components/Footer";
 import Testimonial from "./components/Testimonial";
 import Contact from "./components/Contact";
-import Navbar from "./components/NavBar";
+import Navbar from "./components/navbar";
+import WithUs from "./components/WithUs";
 
 function App() {
   const [isLoading, setIsLoading] = useState(true);
@@ -34,7 +31,10 @@ function App() {
           <Hero />
           <ForYou />
           <Coaches />
-          i
+
+          <WithUs />
+
+
           <Pricing />
           <Testimonial />
           <Contact />
