@@ -33,7 +33,9 @@ function App() {
           <Hero />
           <ForYou />
           <Coaches />
+
           <WithUs />
+
 
           <Pricing />
           <Testimonial />
