@@ -46,7 +46,7 @@ export default function Coaches() {
             makes your journey smoother. Whether you're looking to improve your
             skills, achieve
           </p>
-          <button className="inline-flex items-center px-10 py-4 text-xl font-semibold text-white transition rounded-full shadow-lg bg-primary hover:bg-primary/90 focus:outline-none focus:ring-4 focus:ring-primary/50">
+          <button className="inline-flex items-center px-5 py-3 text-xl font-semibold text-white transition rounded-full shadow-lg bg-primary hover:bg-primary/90 focus:outline-none focus:ring-4 focus:ring-primary/50">
             Get Started
             <svg
               className="w-6 h-6 ml-4"
