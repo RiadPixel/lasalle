@@ -2,10 +2,7 @@ import {
   Facebook,
   Twitter,
   Instagram,
-  Linkedin,
-  ArrowUp,
   Sparkles,
-  Zap,
 } from "lucide-react";
 import logo from "../assets/logos/logo1.png";
 import logo1 from "../assets/logos/logoLight.png";
@@ -85,11 +82,6 @@ const Footer = () => {
                   Icon: Instagram,
                   color: "from-pink-500 to-purple-600",
                   delay: "0.2s",
-                },
-                {
-                  Icon: Linkedin,
-                  color: "from-blue-600 to-blue-700",
-                  delay: "0.3s",
                 },
               ].map(({ Icon, color, delay }, index) => (
                 <div
