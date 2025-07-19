@@ -22,7 +22,9 @@ function Navbar() {
 
   useEffect(() => {
     const handleScroll = () => {
-      const isScrolled = window.scrollY > 50;
+      const isMobile = window.innerWidth < 768;
+      const threshold = isMobile ? 1 : 50;
+      const isScrolled = window.scrollY > threshold;
       if (isScrolled !== scrolled) {
         setScrolled(isScrolled);
       }
