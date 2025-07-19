@@ -8,7 +8,6 @@ import Pricing from "./components/Pricing";
 import Footer from "./components/Footer";
 import Testimonial from "./components/Testimonial";
 import Contact from "./components/Contact";
-import Navbar from "./components/navbar";
 import WithUs from "./components/WithUs";
 
 function App() {
@@ -34,7 +33,7 @@ function App() {
           <Coaches />
 
           <WithUs />
-
+   <Pricing />
           <Testimonial />
           <Contact />
           <Footer />
