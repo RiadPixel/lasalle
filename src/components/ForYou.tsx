@@ -28,16 +28,17 @@ export default function ForYou() {
 
         <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
           {ForYouData.map((item, index) => (
-            <motion.div
-              key={item.id}
-              className={`transition-transform hover:-translate-y-1 ${
-                index === 1 || index === ForYouData.length - 1 ? "mt-10" : ""
-              }`}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.4, delay: index * 0.1 }}
-              viewport={{ once: true }}
-            >
+           <motion.div
+  key={item.id}
+  className={`transition-transform duration-300 ease-in-out hover:scale-[1.03] hover:shadow-xl ${
+    index === 1 || index === ForYouData.length - 1 ? "mt-10" : ""
+  }`}
+  initial={{ opacity: 0, y: 20 }}
+  whileInView={{ opacity: 1, y: 0 }}
+  transition={{ duration: 0.4, delay: index * 0.1 }}
+  viewport={{ once: true }}
+>
+
              <img
   src={item.image}
   alt={item.title}

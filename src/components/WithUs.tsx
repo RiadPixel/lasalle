@@ -1,7 +1,3 @@
-import { CircleDotDashed, NotebookPen } from "lucide-react";
-import { BsMoonStarsFill } from "react-icons/bs";
-import { CgGym } from "react-icons/cg";
-
 export default function WithUs() {
   return (
     <section className="py-8 px-4">
@@ -17,28 +13,31 @@ export default function WithUs() {
         </div>
       </div>
 
-      <div className="container mt-14 max-w-7xl">
+      <div className="container md:mx-auto mt-14 max-w-7xl">
         <div className="flex flex-wrap justify-center items-center gap-5 lg:gap-0">
-          <div className="flex items-center justify-center border-2 border-gray-300 rounded-full bg-gray-50 size-36 md:size-40">
-            <NotebookPen className="text-gray-800 size-14 md:size-16" />
+          <div className="flex flex-col gap-3 items-center justify-center hover:scale-110 transition-all duration-300 border-2 border-gray-300 rounded-full bg-gray-50 size-44 text-center px-2">
+            <span className="text-3xl md:text-4xl font-bold text-primary">1500+</span>
+            <span className="text-sm md:text-base font-medium text-gray-800">M²</span>
+          </div>
+          <div className="w-16 hidden md:block md:w-24 h-1 border-t-2 border-gray-700 border-dashed mx-2" />
+
+          <div className="flex flex-col gap-3 items-center hover:scale-110 transition-all duration-300 justify-center border-2 border-gray-300 rounded-full bg-gray-50 size-44 text-center px-2">
+            <span className="text-3xl md:text-4xl font-bold text-primary">120+</span>
+            <span className="text-sm md:text-base font-medium text-gray-800">COURS PAR SEMAINE</span>
           </div>
 
           <div className="w-16 hidden md:block md:w-24 h-1 border-t-2 border-gray-700 border-dashed mx-2" />
 
-          <div className="flex items-center justify-center bg-black rounded-full size-36 md:size-40">
-            <CgGym className="text-white size-14 md:size-16" />
+          <div className="flex flex-col gap-3 items-center hover:scale-110 transition-all duration-300 justify-center border-2 border-gray-300 rounded-full bg-gray-50 size-44 text-center px-2">
+            <span className="text-3xl md:text-4xl font-bold text-primary">7</span>
+            <span className="text-sm md:text-base font-medium text-gray-800">J/7</span>
           </div>
 
           <div className="w-16 hidden md:block md:w-24 h-1 border-t-2 border-gray-700 border-dashed mx-2" />
 
-          <div className="flex items-center justify-center border-2 border-gray-300 rounded-full bg-gray-50 size-36 md:size-40">
-            <BsMoonStarsFill className="text-gray-800 size-14 md:size-16" />
-          </div>
-
-          <div className="w-16 hidden md:block md:w-24 h-1 border-t-2 border-gray-700 border-dashed mx-2" />
-
-          <div className="flex items-center justify-center border-2 border-gray-300 rounded-full bg-gray-50 size-36 md:size-40">
-            <CircleDotDashed className="text-gray-800 size-14 md:size-16" />
+          <div className="flex flex-col gap-3 items-center hover:scale-110 transition-all duration-300 justify-center border-2 border-gray-300 rounded-full bg-gray-50 size-44 text-center px-2">
+            <span className="text-3xl md:text-4xl font-bold text-primary">1+</span>
+            <span className="text-sm md:text-base font-medium text-gray-800">PISCINE CHAUFFÉE</span>
           </div>
         </div>
       </div>
