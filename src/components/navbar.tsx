@@ -44,7 +44,7 @@ function Navbar() {
 
   return (
     <nav
-      className={`transition-all duration-300 z-50 sticky
+      className={`transition-all duration-300 z-50 sticky max-w-[100vw]"
         ${scrolled
           ? 'top-6 w-[85%] mx-auto rounded-xl shadow-md border-b border-gray-200 bg-white'
           : 'top-0 w-full bg-transparent'}
@@ -95,7 +95,7 @@ function Navbar() {
         <div className="flex-shrink-0 md:absolute md:left-1/2 md:transform md:-translate-x-1/2 hidden md:block">
           <motion.img 
             src={logo} 
-            alt="Your Logo" 
+            alt="Logo" 
             className="h-10"
             whileHover={{ scale: 1.1 }}
             transition={{ type: "spring", stiffness: 400, damping: 10 }}

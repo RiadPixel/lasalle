@@ -88,7 +88,7 @@ function Hero() {
           />
         </svg>
         {/* MOBILE LAYOUT */}
-        <div className="relative z-10 flex flex-col w-full md:hidden gap-4 items-center justify-between p-4 min-h-[90vh]" style={{minHeight: '90vh'}}>
+        <div className="relative z-10 flex flex-col w-full md:hidden gap-4 items-center justify-between px-2 min-h-[90vh]" style={{minHeight: '90vh'}}>
           {/* Unique NO PAIN / NO GAIN layout */}
           <div className="w-full flex flex-col items-center relative mt-6 mb-2 gap-2">
             <motion.div className="relative w-full flex items-center justify-center" initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, ease: 'easeOut' }}>
@@ -112,7 +112,7 @@ function Hero() {
             transition={{ duration: 0.7, delay: 0.3 }}
           >
             <div
-              className="relative w-64 h-36 bg-black rounded-2xl overflow-hidden shadow-2xl border border-gray-600 cursor-pointer group"
+              className="relative w-full max-w-xs h-36 bg-black rounded-2xl overflow-hidden shadow-2xl border border-gray-600 cursor-pointer group mx-auto"
               onClick={openModal}
             >
               <div className="absolute inset-0 bg-gradient-to-br from-gray-800 to-black flex items-center justify-center">
@@ -128,7 +128,7 @@ function Hero() {
               <img 
                 src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=400&h=300&q=80" 
                 alt="Gym workout session" 
-                className="w-full h-full object-cover opacity-60"
+                className="w-full h-full object-cover opacity-60 max-w-full"
               />
             </div>
           </motion.div>
