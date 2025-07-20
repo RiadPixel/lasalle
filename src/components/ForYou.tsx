@@ -30,22 +30,23 @@ export default function ForYou() {
           {ForYouData.map((item, index) => (
             <motion.div
               key={item.id}
-              className="transition-transform hover:-translate-y-1 "
+              className={`transition-transform hover:-translate-y-1 ${
+                index === 1 || index === ForYouData.length - 1 ? "mt-10" : ""
+              }`}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.4, delay: index * 0.1 }}
               viewport={{ once: true }}
             >
-              <img
-                src={item.image}
-                alt={item.title}
-                className="object-cover w-full h-[80%] rounded-2xl"
-              />
+             <img
+  src={item.image}
+  alt={item.title}
+  className="object-cover w-full h-64 md:h-80  rounded-2xl"
+/>
               <div className="p-5">
                 <div className="flex items-center justify-between mb-2">
-                  <h3 className="ml-2 text-lg font-semibold t">{item.title}</h3>
-                  <span className="p-2 rounded-full cursor-pointer bg-primary">
-                    {" "}
+                  <h3 className="ml-2 text-lg font-semibold">{item.title}</h3>
+                  <span className="p-2 rounded-full cursor-pointer bg-primary rotate-[35deg]">
                     {item.icon}
                   </span>
                 </div>
