@@ -87,7 +87,91 @@ function Hero() {
             transition={{ duration: 2.9, ease: 'linear', delay: 0.6 }}
           />
         </svg>
-        <div className="relative z-10 flex flex-col md:flex-row items-center justify-between w-full h-full gap-4 md:gap-0">
+        {/* MOBILE LAYOUT */}
+        <div className="relative z-10 flex flex-col w-full md:hidden gap-4 items-center justify-between p-4 min-h-[90vh]" style={{minHeight: '90vh'}}>
+          {/* Unique NO PAIN / NO GAIN layout */}
+          <div className="w-full flex flex-col items-center relative mt-6 mb-2 gap-2">
+            <motion.div className="relative w-full flex items-center justify-center" initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, ease: 'easeOut' }}>
+              <span className="text-5xl font-extrabold leading-none tracking-tight font-sans uppercase drop-shadow-lg text-center block bg-gradient-to-r from-[#a78bfa] via-white to-[#a78bfa] bg-clip-text text-transparent rotate-[-3deg]">NO PAIN</span>
+              <span className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 text-6xl font-extrabold text-[#a78bfa] opacity-10 pointer-events-none select-none">/</span>
+            </motion.div>
+            <motion.div className="relative w-full flex items-center justify-center -mt-2" initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, ease: 'easeOut', delay: 0.1 }}>
+              <span className="text-5xl font-extrabold leading-none tracking-tight font-sans uppercase drop-shadow-lg text-center block bg-gradient-to-r from-[#a78bfa] via-white to-[#a78bfa] bg-clip-text text-transparent rotate-[3deg]">NO GAIN</span>
+            </motion.div>
+          </div>
+          <motion.p className="text-base text-gray-200 max-w-xs leading-relaxed text-center my-3" initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7, delay: 0.2 }}>
+            We believe that fitness is not just a destination; 
+            it's a journey. Our state-of-the-art facility is 
+            designed to inspire and empower you to reach 
+            your health and wellness goals.
+          </motion.p>
+          <motion.div 
+            className="w-full flex justify-center my-3"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, delay: 0.3 }}
+          >
+            <div
+              className="relative w-64 h-36 bg-black rounded-2xl overflow-hidden shadow-2xl border border-gray-600 cursor-pointer group"
+              onClick={openModal}
+            >
+              <div className="absolute inset-0 bg-gradient-to-br from-gray-800 to-black flex items-center justify-center">
+                <motion.div
+                  className="w-20 h-20 bg-white rounded-full flex items-center justify-center shadow-2xl border-4 border-white transition-all duration-300 group-hover:scale-110 group-hover:shadow-[0_0_40px_#a78bfa55] group-hover:ring-4 group-hover:ring-[#a78bfa]/30"
+                  whileHover={{ scale: 1.15 }}
+                  whileTap={{ scale: 0.95 }}
+                  transition={{ duration: 0.3 }}
+                >
+                  <svg className="w-10 h-10 text-[#a78bfa] animate-pulse" fill="currentColor" viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21" /></svg>
+                </motion.div>
+              </div>
+              <img 
+                src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=400&h=300&q=80" 
+                alt="Gym workout session" 
+                className="w-full h-full object-cover opacity-60"
+              />
+            </div>
+          </motion.div>
+          <div className="flex-1" />
+          <div className="flex flex-col items-center w-full my-3">
+            <div className="flex flex-row items-center justify-center -space-x-4 mb-2">
+              {clientAvatars.map((src, i) => (
+                <div key={i} className="relative">
+                  <motion.img
+                    src={src}
+                    alt="Client"
+                    className="w-10 h-10 rounded-full border-2 border-white shadow bg-gray-200 object-cover"
+                    style={{zIndex: 10 - i}}
+                    whileHover={{ y: -14 }}
+                    transition={{ type: 'spring', stiffness: 500, damping: 12 }}
+                  />
+                </div>
+              ))}
+            </div>
+            <div className="flex flex-row items-center gap-2 justify-center bg-white/80 px-4 py-1 rounded-full shadow border border-[#a78bfa]">
+              <AnimatedNumber value={clientCount} />
+              <motion.span
+                className="w-4 h-4 rounded-full bg-green-400 border-2 border-white shadow"
+                animate={{ scale: [1, 1.2, 1], boxShadow: [
+                  '0 0 0 0 #6ee7b7',
+                  '0 0 0 4px #a7f3d0',
+                  '0 0 0 0 #6ee7b7'
+                ] }}
+                transition={{ duration: 1.5, repeat: Infinity, ease: 'easeInOut' }}
+              />
+              <span className="text-xs font-semibold text-[#6d28d9] ml-1">Active Clients</span>
+            </div>
+          </div>
+          <motion.button 
+            className="bg-[#a78bfa] text-black border-2 border-black h-12 px-8 py-2 rounded-lg hover:rounded-full font-bold transition-all duration-300 shadow-md w-full mb-2 mt-3"
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+          >
+            Explore More
+          </motion.button>
+        </div>
+        {/* DESKTOP LAYOUT (unchanged) */}
+        <div className="hidden md:relative md:z-10 md:flex md:flex-row md:items-center md:justify-between md:w-full md:h-full md:gap-0">
           <div className="flex flex-col items-start w-full md:w-1/2 p-4 md:p-8 lg:p-16">
             <motion.div className="mb-4 w-full" initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, ease: "easeOut" }}>
               <h1 className="text-5xl md:text-7xl xl:text-8xl font-extrabold mb-4 md:mb-6 leading-none tracking-tight text-white font-sans uppercase drop-shadow-lg" style={{letterSpacing: '0.04em'}}>
@@ -188,49 +272,6 @@ function Hero() {
             <span className="text-xs font-semibold text-[#6d28d9] ml-1">Active Clients</span>
           </div>
         </motion.div>
-        <div className="block md:hidden w-full flex flex-col items-center gap-4 mt-2">
-          <motion.button 
-            className="bg-[#a78bfa] text-black border-2 border-black h-12 px-8 py-2 rounded-lg transition-all duration-300 shadow-md w-full hover:rounded-full font-bold"
-            whileHover={{}}
-            whileTap={{}}
-          >
-            Explore More
-          </motion.button>
-          <motion.div 
-            className="mx-auto bg-white/60 backdrop-blur-md border border-[#a78bfa] rounded-full shadow px-3 py-1 flex flex-row items-center gap-2 min-w-[120px] h-12 z-20 transition-all duration-500 cursor-pointer"
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1, ease: 'easeOut' }}
-          >
-            <div className="flex flex-row items-center -space-x-2">
-              {clientAvatars.map((src, i) => (
-                <div key={i} className="relative">
-                  <motion.img
-                    src={src}
-                    alt="Client"
-                    className="w-7 h-7 rounded-full border-2 border-white shadow bg-gray-200 object-cover"
-                    style={{zIndex: 10 - i}}
-                    whileHover={{ y: -14 }}
-                    transition={{ type: 'spring', stiffness: 500, damping: 12 }}
-                  />
-                </div>
-              ))}
-            </div>
-            <div className="flex flex-row items-center gap-2 ml-2">
-              <AnimatedNumber value={clientCount} />
-              <motion.span
-                className="w-4 h-4 rounded-full bg-green-400 border-2 border-white shadow"
-                animate={{ scale: [1, 1.2, 1], boxShadow: [
-                  '0 0 0 0 #6ee7b7',
-                  '0 0 0 4px #a7f3d0',
-                  '0 0 0 0 #6ee7b7'
-                ] }}
-                transition={{ duration: 1.5, repeat: Infinity, ease: 'easeInOut' }}
-              />
-              <span className="text-xs font-semibold text-[#6d28d9] ml-1">Active Clients</span>
-            </div>
-          </motion.div>
-        </div>
         <AnimatePresence>
           {showModal && (
             <motion.div
