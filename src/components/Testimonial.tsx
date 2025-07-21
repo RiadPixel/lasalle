@@ -81,7 +81,7 @@ export default function Testimonial() {
 
   return (
     <div className="w-[95%] mx-auto py-16 bg-white px-4">
-      {/* Header */}
+
       <div className="mb-12 text-left">
         <h2 className="mb-1 text-sm font-bold tracking-widest text-gray-500 uppercase md:text-base">
           REVIEWS

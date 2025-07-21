@@ -28,14 +28,27 @@ function App() {
       ) : (
         <>
           <Navbar />
-          <Hero />
-          <ForYou />
-          <Coaches />
-
-          <WithUs />
-   <Pricing />
-          <Testimonial />
-          <Contact />
+          <div id="home">
+            <Hero />
+          </div>
+          <div id="foryou">
+            <ForYou />
+          </div>
+          <div id="coaches">
+            <Coaches />
+          </div>
+          <div id="withus">
+            <WithUs />
+          </div>
+          <div id="pricing">
+            <Pricing />
+          </div>
+          <div id="reviews">
+            <Testimonial />
+          </div>
+          <div id="contact">
+            <Contact />
+          </div>
           <Footer />
         </>
       )}
