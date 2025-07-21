@@ -12,7 +12,9 @@ export default function ForYou() {
           transition={{ duration: 0.8, ease: "easeOut" }}
           viewport={{ once: true }}
         >
-          Just For You
+          <span className="text-5xl font-extrabold leading-none tracking-tight font-sans uppercase drop-shadow-lg block bg-gradient-to-r from-[#6d28d9] via-[#7c3aed] to-[#a78bfa] bg-clip-text text-transparent">
+            Just For You
+          </span>
         </motion.h2>
 
         <motion.p

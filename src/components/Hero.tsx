@@ -89,7 +89,7 @@ function Hero() {
         </svg>
         {/* MOBILE LAYOUT */}
         <div className="relative z-10 flex flex-col w-full md:hidden gap-4 items-center justify-between px-2 min-h-[90vh]" style={{minHeight: '90vh'}}>
-          {/* Unique NO PAIN / NO GAIN layout */}
+       
           <div className="w-full flex flex-col items-center relative mt-6 mb-2 gap-2">
             <motion.div className="relative w-full flex items-center justify-center" initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, ease: 'easeOut' }}>
               <span className="text-5xl font-extrabold leading-none tracking-tight font-sans uppercase drop-shadow-lg text-center block bg-gradient-to-r from-[#a78bfa] via-white to-[#a78bfa] bg-clip-text text-transparent rotate-[-3deg]">NO PAIN</span>
@@ -170,7 +170,7 @@ function Hero() {
             Explore More
           </motion.button>
         </div>
-        {/* DESKTOP LAYOUT (unchanged) */}
+        {/* DESKTOP LAYOUT  */}
         <div className="hidden md:relative md:z-10 md:flex md:flex-row md:items-center md:justify-between md:w-full md:h-full md:gap-0">
           <div className="flex flex-col items-start w-full md:w-1/2 p-4 md:p-8 lg:p-16">
             <motion.div className="mb-4 w-full" initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, ease: "easeOut" }}>
