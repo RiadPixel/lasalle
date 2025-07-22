@@ -49,5 +49,6 @@ html {
   }
   body {
     @apply bg-background text-foreground;
+    border: 2px solid red; /* TEMP: helps you see overflow */
   }
 }

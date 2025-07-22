@@ -57,7 +57,7 @@ function Navbar() {
       className={`max-w-[100vw]" sticky z-50 transition-all duration-300
         ${
           scrolled
-            ? "top-6 mx-auto w-[85%] rounded-xl border-b border-gray-200 bg-white shadow-md"
+            ? "top-6 mx-auto w-[85%] rounded-xl border-b border-gray-200 bg-white shadow-md "
             : "top-0 w-full bg-transparent"
         }
       `}
