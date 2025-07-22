@@ -1,4 +1,4 @@
-import { ArrowRight, ChevronUp } from "lucide-react";
+import { ChevronUp } from "lucide-react";
 import firstImage from "../assets/foryousection/14289.jpg";
 import secondImage from "../assets/foryousection/2149552278.jpg";
 import thirdImage from "../assets/foryousection/47431.jpg";
