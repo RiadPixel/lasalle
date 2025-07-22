@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import Coaches from "./components/Coaches";
+
 import ForYou from "./components/ForYou";
 import Hero from "./components/Hero";
 import Loader from "./components/Loader";
@@ -34,9 +34,7 @@ function App() {
           <div id="foryou">
             <ForYou />
           </div>
-          {/* <div id="coaches">
-            <Coaches />
-          </div> */}
+        
           <div id="withus">
             <WithUs />
           </div>
