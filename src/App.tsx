@@ -9,6 +9,8 @@ import Footer from "./components/Footer";
 import Testimonial from "./components/Testimonial";
 import Contact from "./components/Contact";
 import WithUs from "./components/WithUs";
+import About from "./components/AboutUs";
+import Portfolio from "./components/portfolio";
 
 function App() {
   const [isLoading, setIsLoading] = useState(true);
@@ -30,6 +32,12 @@ function App() {
           <Navbar />
           <div id="home">
             <Hero />
+          </div>
+          <div id="about">
+            <About />
+          </div>
+          <div id="portfolio">
+            <Portfolio />
           </div>
           <div id="foryou">
             <ForYou />

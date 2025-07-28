@@ -3,6 +3,7 @@ import { Menu, X, Instagram, Facebook } from "lucide-react";
 import { SiTiktok } from "react-icons/si";
 import logo from "../assets/logos/logo.png";
 import { motion } from "framer-motion";
+import { AnimatePresence } from "framer-motion";
 
 function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -48,17 +49,17 @@ function Navbar() {
   }, [scrolled]);
 
   const menuVariants = {
-    open: { y: 0 },
-    closed: { y: "-100%" },
+    open: { y: 0, opacity: 1 },
+    closed: { y: "-100%", opacity: 0 },
   };
 
   return (
     <nav
-      className={`max-w-[100vw]" sticky z-50 transition-all duration-300
+      className={`max-w-[100vw] sticky z-[9999] transition-all duration-300
         ${
           scrolled
-            ? "top-6 mx-auto w-[85%] rounded-xl border-b border-gray-200 bg-white shadow-md "
-            : "top-0 w-full bg-transparent"
+            ? "top-6 mx-auto w-[90%] rounded-xl border-b border-gray-200 bg-white shadow-md "
+            : "top-0 w-full bg-transparent md:w-[90%] md:mx-auto"
         }
       `}
     >
@@ -126,25 +127,33 @@ function Navbar() {
         </div>
 
         <div className="hidden flex-grow items-center justify-end space-x-4 md:flex">
-          <button className="hidden h-12 items-center justify-center whitespace-nowrap rounded-lg border-2 border-black bg-[#a78bfa] px-8 py-2 text-sm font-bold text-black ring-offset-background transition-all duration-100 ease-in-out hover:rounded-full focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 md:inline-flex">
+          <button
+            className="hidden h-12 min-w-[140px] items-center justify-center whitespace-nowrap rounded-lg border-2 border-purple-600 bg-white px-8 py-2 text-sm font-bold text-purple-700 ring-offset-background transition-all duration-150 ease-in-out hover:rounded-full focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-purple-600 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 md:inline-flex"
+            onClick={() => window.dispatchEvent(new CustomEvent('openContactForm', { detail: { tab: 'reserve' } }))}
+          >
+            Reserve
+          </button>
+          <button className="hidden h-12 min-w-[140px] items-center justify-center whitespace-nowrap rounded-lg border-2 border-black bg-[#a78bfa] px-8 py-2 text-sm font-bold text-black ring-offset-background transition-all duration-150 ease-in-out hover:rounded-full focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 md:inline-flex"
+            onClick={() => window.dispatchEvent(new Event('openContactForm'))}
+          >
             Contact Us
           </button>
           <div className="hidden items-center space-x-2 md:flex">
             <a
               href="#"
-              className="rounded-full p-2 text-gray-600 transition-colors duration-200 hover:bg-primary hover:text-primary hover:text-primary-foreground"
+              className="rounded-full p-2 text-gray-600 transition-colors duration-200 hover:bg-purple-100 hover:text-purple-600"
             >
               <Instagram size={20} />
             </a>
             <a
               href="#"
-              className="rounded-full p-2 text-gray-600 transition-colors duration-200 hover:bg-primary hover:text-primary hover:text-primary-foreground"
+              className="rounded-full p-2 text-gray-600 transition-colors duration-200 hover:bg-purple-100 hover:text-purple-600"
             >
               <Facebook size={20} />
             </a>
             <a
               href="#"
-              className="rounded-full p-2 text-gray-600 transition-colors duration-200 hover:bg-primary hover:text-primary hover:text-primary-foreground"
+              className="rounded-full p-2 text-gray-600 transition-colors duration-200 hover:bg-purple-100 hover:text-purple-600"
             >
               <SiTiktok size={20} />
             </a>
@@ -153,70 +162,100 @@ function Navbar() {
 
         <button
           onClick={toggleMenu}
-          className="z-50 p-2 text-gray-600 hover:text-primary md:hidden"
+          className="z-[9999] p-2 text-gray-600 hover:text-purple-600 md:hidden"
         >
           {isOpen ? (
-            <X size={24} strokeWidth={3} className="text-primary" />
+            <X size={24} strokeWidth={3} className="text-purple-600" />
           ) : (
-            <Menu size={24} className="text-primary" />
+            <Menu size={24} className="text-purple-600" />
           )}
         </button>
       </div>
 
-      {isOpen && (
-        <motion.div
-          className="fixed inset-0 z-40 flex flex-col items-center bg-white pb-6 pt-16 md:hidden"
-          initial="closed"
-          animate={isOpen ? "open" : "closed"}
-          variants={menuVariants}
-          transition={{ duration: 0.3 }}
-        >
-          <div className="mb-10 flex-shrink-0">
-            <img src={logo} alt="Your Logo" className="h-16" />
-          </div>
-          <div className="flex flex-grow flex-col items-center space-y-8">
-            {links.map((link) => (
-              <a
-                key={link.name}
-                href={link.href}
-                className="text-3xl font-semibold text-gray-800 transition-colors duration-200 hover:text-primary"
-                onClick={(e) => handleLinkClick(e, link.href)}
+      <AnimatePresence>
+        {isOpen && (
+          <motion.div
+            className="fixed inset-0 z-[9998] flex flex-col items-center bg-white md:hidden"
+            initial="closed"
+            animate="open"
+            exit="closed"
+            variants={menuVariants}
+            transition={{ duration: 0.3 }}
+          >
+          
+            <div className="w-full flex justify-center pt-16 pb-8">
+              <img src={logo} alt="Your Logo" className="h-16" />
+            </div>
+            
+            
+            <div className="flex flex-col items-center space-y-6 flex-1">
+              {links.map((link) => (
+                <button
+                  key={link.name}
+                  className={`text-2xl font-semibold transition-colors duration-200 hover:text-purple-600 ${
+                    activeLink === link.name ? 'text-purple-600' : 'text-gray-800'
+                  }`}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    document.querySelector(link.href)?.scrollIntoView({ behavior: "smooth" });
+                    setActiveLink(link.name);
+                    setIsOpen(false);
+                  }}
+                >
+                  {link.name}
+                </button>
+              ))}
+            </div>
+            
+           
+            <div className="flex flex-col items-center space-y-4 w-full px-8 pb-8">
+              <button
+                className="w-full max-w-xs rounded-lg border-2 border-black bg-[#a78bfa] px-6 py-3 text-xl font-bold text-black transition-all duration-100 ease-in-out hover:rounded-full"
+                onClick={() => {
+                  window.dispatchEvent(new Event('openContactForm'));
+                  setIsOpen(false);
+                }}
               >
-                {link.name}
-              </a>
-            ))}
-            <button
-              className="mt-8 rounded-lg border-2 border-black bg-[#a78bfa] px-6 py-3 text-xl font-bold text-black transition-all duration-100 ease-in-out hover:rounded-full"
-              onClick={toggleMenu}
-            >
-              Contact Us
-            </button>
-            <div className="mt-6 flex space-x-6">
+                Contact Us
+              </button>
+              <button
+                className="w-full max-w-xs rounded-lg border-2 border-purple-600 bg-white px-6 py-3 text-xl font-bold text-purple-700 transition-all duration-100 ease-in-out hover:rounded-full hover:bg-purple-50"
+                onClick={() => {
+                  window.dispatchEvent(new CustomEvent('openContactForm', { detail: { tab: 'reserve' } }));
+                  setIsOpen(false);
+                }}
+              >
+                Reserve
+              </button>
+            </div>
+            
+            
+            <div className="flex space-x-8 pb-8">
               <a
                 href="#"
-                className="rounded-full p-2 text-gray-600 transition-colors duration-200 hover:bg-primary hover:text-primary hover:text-primary-foreground"
+                className="rounded-full p-3 text-gray-600 transition-colors duration-200 hover:bg-purple-100 hover:text-purple-600"
                 onClick={toggleMenu}
               >
                 <Instagram size={28} />
               </a>
               <a
                 href="#"
-                className="rounded-full p-2 text-gray-600 transition-colors duration-200 hover:bg-primary hover:text-primary hover:text-primary-foreground"
+                className="rounded-full p-3 text-gray-600 transition-colors duration-200 hover:bg-purple-100 hover:text-purple-600"
                 onClick={toggleMenu}
               >
                 <Facebook size={28} />
               </a>
               <a
                 href="#"
-                className="rounded-full p-2 text-gray-600 transition-colors duration-200 hover:bg-primary hover:text-primary hover:text-primary-foreground"
+                className="rounded-full p-3 text-gray-600 transition-colors duration-200 hover:bg-purple-100 hover:text-purple-600"
                 onClick={toggleMenu}
               >
                 <SiTiktok size={28} />
               </a>
             </div>
-          </div>
-        </motion.div>
-      )}
+          </motion.div>
+        )}
+      </AnimatePresence>
     </nav>
   );
 }
