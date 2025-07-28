@@ -1,9 +1,8 @@
 "use client"
 
 import { useState, useRef, useEffect } from "react"
-import { motion, AnimatePresence } from "framer-motion"
-import { Play, Maximize2 } from "lucide-react"
-import { useInView } from "framer-motion"
+import { motion, AnimatePresence, useInView } from "framer-motion"
+import { Play, Maximize2, Volume2, VolumeX } from "lucide-react"
 
 interface GridItem {
   id: number
@@ -79,13 +78,11 @@ const gridItems: GridItem[] = [
   },
 ]
 
-
 const classicFrame = {
   corner: `data:image/svg+xml,%3Csvg width='32' height='32' viewBox='0 0 32 32' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 0L32 0L32 6L6 6L6 32L0 32L0 0Z' fill='%23000000'/%3E%3Cpath d='M2 2L30 2L30 4L4 4L4 30L2 30L2 2Z' fill='%23333333'/%3E%3C/svg%3E`,
   edgeHorizontal: `data:image/svg+xml,%3Csvg width='32' height='6' viewBox='0 0 32 6' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Crect x='0' y='0' width='32' height='6' fill='%23000000'/%3E%3Crect x='0' y='2' width='32' height='2' fill='%23333333'/%3E%3C/svg%3E`,
   edgeVertical: `data:image/svg+xml,%3Csvg width='6' height='32' viewBox='0 0 6 32' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Crect x='0' y='0' width='6' height='32' fill='%23000000'/%3E%3Crect x='2' y='0' width='2' height='32' fill='%23333333'/%3E%3C/svg%3E`,
 }
-
 
 interface FrameComponentProps {
   item: GridItem
@@ -93,10 +90,11 @@ interface FrameComponentProps {
   showFrames: boolean
   autoPlay: boolean
   muted: boolean
+  isInView: boolean
   onVideoLoad?: () => void
 }
 
-function FrameComponent({ item, isHovered, showFrames, autoPlay, muted, onVideoLoad }: FrameComponentProps) {
+function FrameComponent({ item, isHovered, showFrames, autoPlay, muted, isInView, onVideoLoad }: FrameComponentProps) {
   const videoRef = useRef<HTMLVideoElement>(null)
 
   useEffect(() => {
@@ -104,7 +102,8 @@ function FrameComponent({ item, isHovered, showFrames, autoPlay, muted, onVideoL
       const video = videoRef.current
       video.muted = muted
       
-      if (autoPlay || isHovered) {
+      
+      if (isInView && (autoPlay || isHovered)) {
         const playPromise = video.play()
         if (playPromise !== undefined) {
           playPromise.catch((error) => {
@@ -115,11 +114,10 @@ function FrameComponent({ item, isHovered, showFrames, autoPlay, muted, onVideoL
         video.pause()
       }
     }
-  }, [autoPlay, isHovered, item.type, muted])
+  }, [autoPlay, isHovered, item.type, muted, isInView])
 
   return (
     <div className="relative w-full h-full overflow-hidden">
-    
       <div className="absolute inset-0">
         {item.type === "video" ? (
           <video
@@ -132,7 +130,7 @@ function FrameComponent({ item, isHovered, showFrames, autoPlay, muted, onVideoL
             preload="metadata"
             onLoadedData={onVideoLoad}
             onCanPlay={() => {
-              if (autoPlay || isHovered) {
+              if (isInView && (autoPlay || isHovered)) {
                 videoRef.current?.play().catch(console.log)
               }
             }}
@@ -154,7 +152,6 @@ function FrameComponent({ item, isHovered, showFrames, autoPlay, muted, onVideoL
         )}
       </div>
 
-     
       <motion.div
         className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"
         animate={{
@@ -163,7 +160,6 @@ function FrameComponent({ item, isHovered, showFrames, autoPlay, muted, onVideoL
         transition={{ duration: 0.3 }}
       />
 
-      
       <AnimatePresence>
         {showFrames && (
           <motion.div
@@ -173,7 +169,6 @@ function FrameComponent({ item, isHovered, showFrames, autoPlay, muted, onVideoL
             className="absolute inset-0 pointer-events-none"
             style={{ zIndex: 10 }}
           >
-        
             <div className="absolute inset-0 shadow-lg" style={{
               boxShadow: `
                 inset 0 0 0 4px #000000,
@@ -183,7 +178,6 @@ function FrameComponent({ item, isHovered, showFrames, autoPlay, muted, onVideoL
               `
             }} />
             
-          
             <div
               className="absolute top-0 left-0 w-8 h-8 bg-contain bg-no-repeat"
               style={{ 
@@ -216,7 +210,6 @@ function FrameComponent({ item, isHovered, showFrames, autoPlay, muted, onVideoL
               }}
             />
 
-         
             <div
               className="absolute top-0 left-8 right-8 h-2"
               style={{
@@ -252,7 +245,6 @@ function FrameComponent({ item, isHovered, showFrames, autoPlay, muted, onVideoL
               }}
             />
 
-           
             <div className="absolute inset-3 border border-gray-300/20" />
           </motion.div>
         )}
@@ -278,7 +270,6 @@ function FrameComponent({ item, isHovered, showFrames, autoPlay, muted, onVideoL
           </motion.p>
         </motion.div>
 
-        
         <motion.div
           className="absolute top-2 sm:top-3 lg:top-4 left-2 sm:left-3 lg:left-4 flex items-center gap-1 sm:gap-2 bg-white/90 backdrop-blur-sm rounded-full px-2 sm:px-3 py-1"
           animate={{
@@ -294,7 +285,6 @@ function FrameComponent({ item, isHovered, showFrames, autoPlay, muted, onVideoL
           <span className="text-xs text-gray-900 uppercase tracking-wider hidden sm:block">{item.type}</span>
         </motion.div>
 
-   
         <motion.div
           className="absolute top-2 sm:top-3 lg:top-4 right-2 sm:right-3 lg:right-4 bg-white/90 backdrop-blur-sm rounded-full p-1.5 sm:p-2"
           animate={{
@@ -306,7 +296,6 @@ function FrameComponent({ item, isHovered, showFrames, autoPlay, muted, onVideoL
           <Maximize2 size={12} className="text-gray-900 sm:w-4 sm:h-4" />
         </motion.div>
       </div>
-
 
       <motion.div
         className="absolute inset-0 border-2 border-white/0"
@@ -320,33 +309,33 @@ function FrameComponent({ item, isHovered, showFrames, autoPlay, muted, onVideoL
   )
 }
 
-
 interface ToggleSwitchProps {
   checked: boolean
   onChange: (checked: boolean) => void
-  label: string
+  label: string | React.ReactNode
 }
 
 function ToggleSwitch({ checked, onChange, label }: ToggleSwitchProps) {
   return (
-    <div className="flex items-center gap-2 md:gap-3">
+    <div className="flex items-center gap-2">
       <motion.button
         whileTap={{ scale: 0.95 }}
         onClick={() => onChange(!checked)}
-        className={`relative w-10 md:w-12 h-5 md:h-6 rounded-full transition-colors duration-200 border ${
+        className={`relative w-10 h-5 rounded-full transition-colors duration-200 border flex-shrink-0 ${
           checked ? "bg-black border-black" : "bg-gray-200 border-gray-300"
         }`}
       >
         <motion.div
-          className="absolute top-0.5 w-4 md:w-5 h-4 md:h-5 rounded-full bg-white shadow-sm"
-          animate={{ x: checked ? (typeof window !== 'undefined' && window.innerWidth >= 768 ? 22 : 18) : 2 }}
+          className="absolute top-0.5 w-4 h-4 rounded-full bg-white shadow-sm"
+          animate={{ x: checked ? 18 : 2 }}
           transition={{ duration: 0.2, ease: "easeInOut" }}
         />
       </motion.button>
-      <span className="text-xs md:text-sm font-medium text-gray-700 whitespace-nowrap">{label}</span>
+      <span className="text-xs font-medium text-gray-700">{label}</span>
     </div>
   )
 }
+
 
 
 export default function GymPortfolio() {
@@ -354,7 +343,6 @@ export default function GymPortfolio() {
   const [autoPlay, setAutoPlay] = useState(true)
   const [showFrames, setShowFrames] = useState(true)
   const [muted, setMuted] = useState(true)
-  const [hoverSize, setHoverSize] = useState(2.2)
   const sectionRef = useRef<HTMLDivElement>(null)
   const isInView = useInView(sectionRef, { amount: 0.2 })
 
@@ -364,11 +352,11 @@ export default function GymPortfolio() {
     }
     const index = hoveredItem - 1
     const position = type === "rows" ? Math.floor(index / 3) : index % 3
+    const hoverSize = 2.2
     const nonHoveredSize = (3 - hoverSize) / 2
     return [0, 1, 2].map((i) => (i === position ? `${hoverSize}fr` : `${nonHoveredSize}fr`)).join(" ")
   }
 
- 
   const handleItemTouch = (itemId: number) => {
     if (hoveredItem === itemId) {
       setHoveredItem(null)
@@ -379,7 +367,6 @@ export default function GymPortfolio() {
 
   return (
     <div ref={sectionRef} className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100 text-gray-900 overflow-hidden relative">
-
       <div className="max-w-7xl mx-auto flex flex-col lg:flex-row gap-6 lg:gap-8 pt-6 lg:pt-8 pb-4 px-4 lg:px-6 relative z-10">
         
         <div className="w-full lg:w-80 xl:w-96 flex-shrink-0 mb-4 lg:mb-0">
@@ -397,7 +384,6 @@ export default function GymPortfolio() {
             </div>
           </div>
 
-         
           <div className="hidden lg:block">
             <div className="mb-6">
               <h1 className="text-3xl lg:text-4xl xl:text-5xl font-bold text-gray-900 mb-3">
@@ -421,13 +407,22 @@ export default function GymPortfolio() {
         </div>
 
         <div className="flex-1">
-         
-          <div className="flex flex-col sm:flex-row items-start sm:items-center gap-3 sm:gap-6 mb-4 lg:mb-6">
+          
+          <div className="flex flex-wrap items-center gap-4 mb-4 lg:mb-6">
             <ToggleSwitch checked={showFrames} onChange={setShowFrames} label="Gallery Frames" />
             <ToggleSwitch checked={autoPlay} onChange={setAutoPlay} label="Auto Play Videos" />
+            <ToggleSwitch 
+              checked={!muted} 
+              onChange={(checked) => setMuted(!checked)} 
+              label={
+                <div className="flex items-center gap-1">
+                  {muted ? <VolumeX size={12} /> : <Volume2 size={12} />}
+                  <span>Audio</span>
+                </div>
+              } 
+            />
           </div>
 
-        
           <motion.div
             layout
             className="grid gap-2 sm:gap-3 lg:gap-4 h-[60vh] sm:h-[65vh] lg:h-[70vh] xl:h-[75vh]"
@@ -460,6 +455,7 @@ export default function GymPortfolio() {
                   showFrames={showFrames}
                   autoPlay={autoPlay}
                   muted={muted}
+                  isInView={isInView}
                 />
               </motion.div>
             ))}
