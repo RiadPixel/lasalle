@@ -11,6 +11,8 @@ import Contact from "./components/Contact";
 import WithUs from "./components/WithUs";
 import About from "./components/AboutUs";
 import Portfolio from "./components/portfolio";
+import ContactSection from "./components/ContactSection";
+import Planning from "./components/Planning";
 
 function App() {
   const [isLoading, setIsLoading] = useState(true);
@@ -42,12 +44,17 @@ function App() {
           <div id="foryou">
             <ForYou />
           </div>
-        
+          <div id="planning">
+            <Planning />
+          </div>
           <div id="withus">
             <WithUs />
           </div>
           <div id="pricing">
             <Pricing />
+          </div>
+          <div id="contact">
+            <ContactSection />
           </div>
           <div id="reviews">
             <Testimonial />

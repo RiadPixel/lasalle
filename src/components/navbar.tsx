@@ -13,6 +13,7 @@ function Navbar() {
   const links = [
     { name: "Home", href: "#home" },
     { name: "For You", href: "#foryou" },
+    { name: "Planning", href: "#planning" },
     { name: "Coaches", href: "#coaches" },
     { name: "Pricing", href: "#pricing" },
     { name: "Reviews", href: "#reviews" },

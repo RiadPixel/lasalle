@@ -283,90 +283,7 @@ const Contact = () => {
         )}
       </AnimatePresence>
 
-      <section id="contact" className="py-32 bg-gradient-to-br from-purple-100 via-white to-purple-50 relative overflow-hidden min-h-screen flex items-center">
 
-        <div className="absolute inset-0 bg-gradient-to-br from-purple-100 via-white to-purple-200 w-full h-full" />
-        <div className="absolute inset-0 opacity-[0.02] pointer-events-none" style={{ 
-          backgroundImage: "url(\"data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%238B5CF6' fill-opacity='0.2'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E\")",
-        }} />
-        
-        <motion.div
-          className="absolute top-20 left-10 w-20 h-20 bg-purple-200 rounded-full opacity-20"
-          animate={{ y: [0, -20, 0], rotate: [0, 180, 360] }}
-          transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
-        />
-        <motion.div
-          className="absolute bottom-20 right-10 w-16 h-16 bg-purple-300 rounded-full opacity-30"
-          animate={{ y: [0, 20, 0], x: [0, 10, 0] }}
-          transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
-        />
-        
-        <div className="relative w-full max-w-7xl mx-auto z-10 md:w-[90vw] px-4">
-          <div className="bg-gradient-to-br from-white/95 via-purple-50/90 to-white/95 rounded-3xl shadow-2xl p-16 flex flex-col lg:flex-row items-center gap-16 border border-purple-200/50 backdrop-blur-sm">
-            <div className="flex-1 flex flex-col items-start justify-center gap-8">
-              <motion.h2 
-                className="text-6xl md:text-7xl font-extrabold text-purple-700 mb-4 tracking-tight leading-tight"
-                initial={{ opacity: 0, y: 30 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8 }}
-              >
-                Let's Get in Touch
-              </motion.h2>
-              <motion.p 
-                className="text-purple-600 text-xl mb-6 leading-relaxed"
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 0.2 }}
-              >
-                Vous avez des questions ou souhaitez réserver une séance d'essai ? Contactez-nous ou réservez directement !
-              </motion.p>
-              <motion.div 
-                className="flex items-center gap-4 text-2xl text-purple-700 font-bold"
-                initial={{ opacity: 0, x: -20 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.8, delay: 0.4 }}
-              >
-                <div className="w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center">
-                  <svg className="w-6 h-6 text-purple-600" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
-                    <path d="M3 5.75C3 4.784 3.784 4 4.75 4h14.5A1.75 1.75 0 0 1 21 5.75v12.5A1.75 1.75 0 0 1 19.25 20H4.75A1.75 1.75 0 0 1 3 18.25V5.75z"/>
-                    <path d="M3 6l9 7 9-7"/>
-                  </svg>
-                </div>
-                <span>05 22 66 44 66</span>
-              </motion.div>
-              <motion.button
-                className="mt-8 px-12 py-6 rounded-2xl bg-gradient-to-r from-purple-500 via-purple-600 to-purple-700 text-white font-extrabold text-xl shadow-2xl hover:rounded-full hover:shadow-purple-500/25 transition-all duration-300 transform hover:scale-105"
-                onClick={() => window.dispatchEvent(new Event('openContactForm'))}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 0.6 }}
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-              >
-                Get in Touch
-              </motion.button>
-            </div>
-            <motion.div 
-              className="flex-1 w-full h-96 rounded-3xl overflow-hidden shadow-2xl border border-purple-200/50"
-              initial={{ opacity: 0, scale: 0.9 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 1, delay: 0.8 }}
-            >
-              <iframe
-                title="La Salle Gym Location"
-                src="https://www.google.com/maps?q=75+Boulevard+Chefchaouni,+Casablanca,+Morocco&output=embed"
-                width="100%"
-                height="100%"
-                style={{ border: 0, minHeight: '24rem', width: '100%' }}
-                allowFullScreen
-                loading="lazy"
-                referrerPolicy="no-referrer-when-downgrade"
-                className="w-full h-full"
-              ></iframe>
-            </motion.div>
-          </div>
-        </div>
-      </section>
       <AnimatePresence>
         {isOpen && (
           <>
@@ -461,19 +378,26 @@ const Contact = () => {
                       {formState.isSuccess && (
                         <motion.div
                           key="success"
-                          initial={{ opacity: 0, scale: 0.95 }}
-                          animate={{ opacity: 1, scale: 1 }}
-                          exit={{ opacity: 0, scale: 0.95 }}
-                          transition={{ type: "spring", damping: 20, stiffness: 300 }}
-                          className="bg-purple-100 rounded-lg p-6 text-center border border-purple-200 mb-6"
-                        >
-                          <div className="flex justify-center mb-4">
-                            <motion.div 
-                              className="w-16 h-16 rounded-full bg-purple-600 flex items-center justify-center text-white"
-                              initial={{ scale: 0 }}
-                              animate={{ scale: [0, 1.2, 1] }}
-                              transition={{ duration: 0.5, times: [0, 0.8, 1] }}
-                            >
+                          initial={{ opacity: 0, y: 20, scale: 0.9 }}
+                          animate={{ opacity: 1, y: 0, scale: 1 }}
+                          exit={{ opacity: 0, y: -20, scale: 0.9 }}
+                          transition={{ type: "spring", damping: 25, stiffness: 400 }}
+                          className="relative overflow-hidden bg-gradient-to-br from-purple-50 to-purple-100 rounded-2xl p-8 text-center border border-purple-200 mb-6 shadow-lg"
+                        >      
+                           <motion.div
+                             className="absolute inset-0 bg-gradient-to-r from-purple-400/20 to-purple-600/20"
+                             initial={{ x: '-100%' }}
+                             animate={{ x: '100%' }}
+                             transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+                           />
+                          
+                          <div className="relative z-10">
+                                                         <motion.div 
+                               className="w-20 h-20 mx-auto mb-6 rounded-full bg-gradient-to-br from-purple-500 to-purple-600 flex items-center justify-center text-white shadow-xl"
+                               initial={{ scale: 0, rotate: -180 }}
+                               animate={{ scale: [0, 1.3, 1], rotate: [0, 360] }}
+                               transition={{ duration: 0.8, times: [0, 0.7, 1] }}
+                             >
                               <motion.svg 
                                 xmlns="http://www.w3.org/2000/svg" 
                                 viewBox="0 0 24 24" 
@@ -482,34 +406,60 @@ const Contact = () => {
                                 strokeWidth="3" 
                                 strokeLinecap="round" 
                                 strokeLinejoin="round"
-                                className="w-8 h-8"
-                                initial={{ pathLength: 0 }}
-                                animate={{ pathLength: 1 }}
-                                transition={{ duration: 0.5, delay: 0.3 }}
+                                className="w-10 h-10"
+                                initial={{ pathLength: 0, opacity: 0 }}
+                                animate={{ pathLength: 1, opacity: 1 }}
+                                transition={{ duration: 0.6, delay: 0.4 }}
                               >
                                 <polyline points="20 6 9 17 4 12"></polyline>
                               </motion.svg>
                             </motion.div>
+                            
+                            <motion.div
+                              className="space-y-3"
+                              initial={{ opacity: 0, y: 20 }}
+                              animate={{ opacity: 1, y: 0 }}
+                              transition={{ delay: 0.6 }}
+                            >
+                                                             <motion.h3 
+                                 className="text-2xl font-bold text-purple-800"
+                                 initial={{ opacity: 0 }}
+                                 animate={{ opacity: 1 }}
+                                 transition={{ delay: 0.7 }}
+                               >
+                                 {activeTab === 'contact' ? 'Message Sent Successfully!' : 'Reservation Confirmed!'}
+                               </motion.h3>
+                               <motion.p 
+                                 className="text-purple-700 text-lg"
+                                 initial={{ opacity: 0 }}
+                                 animate={{ opacity: 1 }}
+                                 transition={{ delay: 0.8 }}
+                               >
+                                {activeTab === 'contact' 
+                                  ? 'Thank you for reaching out. We\'ll get back to you within 24 hours.'
+                                  : 'Your reservation has been submitted successfully! We\'ll contact you soon.'
+                                }
+                              </motion.p>
+                              
+                          
+                              <motion.div
+                                className="flex justify-center space-x-2 mt-4"
+                                initial={{ opacity: 0 }}
+                                animate={{ opacity: 1 }}
+                                transition={{ delay: 0.9 }}
+                              >
+                                                                 {[...Array(3)].map((_, i) => (
+                                   <motion.div
+                                     key={i}
+                                     className="w-2 h-2 bg-purple-500 rounded-full"
+                                     initial={{ scale: 0, opacity: 0 }}
+                                     animate={{ scale: 1, opacity: 1 }}
+                                     transition={{ delay: 1 + i * 0.1 }}
+                                   />
+                                 ))}
+                              </motion.div>
+                            </motion.div>
                           </div>
-                          <motion.h3 
-                            className="text-xl font-medium mb-2 text-purple-700"
-                            initial={{ opacity: 0 }}
-                            animate={{ opacity: 1 }}
-                            transition={{ delay: 0.4 }}
-                          >
-                            {activeTab === 'contact' ? 'Message Sent!' : 'Reservation Confirmed!'}
-                          </motion.h3>
-                          <motion.p 
-                            className="text-purple-600"
-                            initial={{ opacity: 0 }}
-                            animate={{ opacity: 1 }}
-                            transition={{ delay: 0.5 }}
-                          >
-                            {activeTab === 'contact' 
-                              ? 'Thank you for reaching out. We\'ll get back to you soon.'
-                              : 'Your reservation has been submitted successfully!'
-                            }
-                          </motion.p>
                         </motion.div>
                       )}
                     </AnimatePresence>
@@ -528,28 +478,28 @@ const Contact = () => {
                           <motion.div
                             initial={{ x: -20, opacity: 0 }}
                             animate={{ x: 0, opacity: 1 }}
-                            transition={{ duration: 0.3, delay: 0.1 }}
+                            transition={{ duration: 0.4, delay: 0.1 }}
                           >
-                            <label htmlFor="name" className="block text-sm font-medium text-purple-700 mb-2 uppercase tracking-wide group">
+                            <label htmlFor="name" className="block text-sm font-semibold text-gray-700 mb-3 uppercase tracking-wide">
                               <span className="inline-flex items-center">
-                                <span className="mr-2">✦</span>
-                                <span>Name</span>
+                                <span className="mr-2 text-purple-500">✦</span>
+                                <span>Full Name</span>
                               </span>
                             </label>
-                            <div className="relative">
+                            <div className="relative group">
                               <input
                                 type="text"
                                 id="name"
                                 name="name"
                                 required
-                                className="w-full px-4 py-3 bg-purple-50 border-2 border-purple-200 rounded-lg focus:outline-none focus:border-purple-500 transition-all text-sm pr-10"
-                                placeholder="Your Name"
+                                className="w-full px-4 py-4 bg-white border-2 border-gray-200 rounded-xl focus:outline-none focus:border-purple-500 focus:ring-4 focus:ring-purple-100 transition-all duration-300 text-base pr-12 shadow-sm group-hover:shadow-md"
+                                placeholder="Enter your full name"
                                 aria-required="true"
                                 disabled={formState.isSubmitting}
                               />
-                              <div className="absolute right-3 top-1/2 -translate-y-1/2 w-5 h-5 text-purple-300">
+                              <div className="absolute right-4 top-1/2 -translate-y-1/2 w-6 h-6 text-gray-400 group-focus-within:text-purple-500 transition-colors duration-300">
                                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+                                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
                                 </svg>
                               </div>
                             </div>
@@ -557,28 +507,28 @@ const Contact = () => {
                           <motion.div
                             initial={{ x: -20, opacity: 0 }}
                             animate={{ x: 0, opacity: 1 }}
-                            transition={{ duration: 0.3, delay: 0.2 }}
+                            transition={{ duration: 0.4, delay: 0.2 }}
                           >
-                            <label htmlFor="email" className="block text-sm font-medium text-purple-700 mb-2 uppercase tracking-wide">
+                            <label htmlFor="email" className="block text-sm font-semibold text-gray-700 mb-3 uppercase tracking-wide">
                               <span className="inline-flex items-center">
-                                <span className="mr-2">✦</span>
-                                <span>Email</span>
+                                <span className="mr-2 text-purple-500">✦</span>
+                                <span>Email Address</span>
                               </span>
                             </label>
-                            <div className="relative">
+                            <div className="relative group">
                               <input
                                 type="email"
                                 id="email"
                                 name="email"
                                 required
-                                className="w-full px-4 py-3 bg-purple-50 border-2 border-purple-200 rounded-lg focus:outline-none focus:border-purple-500 transition-all text-sm pr-10"
-                                placeholder="Your Email"
+                                className="w-full px-4 py-4 bg-white border-2 border-gray-200 rounded-xl focus:outline-none focus:border-purple-500 focus:ring-4 focus:ring-purple-100 transition-all duration-300 text-base pr-12 shadow-sm group-hover:shadow-md"
+                                placeholder="Enter your email address"
                                 aria-required="true"
                                 disabled={formState.isSubmitting}
                               />
-                              <div className="absolute right-3 top-1/2 -translate-y-1/2 w-5 h-5 text-purple-300">
+                              <div className="absolute right-4 top-1/2 -translate-y-1/2 w-6 h-6 text-gray-400 group-focus-within:text-purple-500 transition-colors duration-300">
                                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                                 </svg>
                               </div>
                             </div>
@@ -586,28 +536,28 @@ const Contact = () => {
                           <motion.div
                             initial={{ x: -20, opacity: 0 }}
                             animate={{ x: 0, opacity: 1 }}
-                            transition={{ duration: 0.3, delay: 0.3 }}
+                            transition={{ duration: 0.4, delay: 0.3 }}
                           >
-                            <label htmlFor="message" className="block text-sm font-medium text-purple-700 mb-2 uppercase tracking-wide">
+                            <label htmlFor="message" className="block text-sm font-semibold text-gray-700 mb-3 uppercase tracking-wide">
                               <span className="inline-flex items-center">
-                                <span className="mr-2">✦</span>
+                                <span className="mr-2 text-purple-500">✦</span>
                                 <span>Message</span>
                               </span>
                             </label>
-                            <div className="relative">
+                            <div className="relative group">
                               <textarea
                                 id="message"
                                 name="message"
                                 required
-                                rows={3}
-                                className="w-full px-4 py-3 bg-purple-50 border-2 border-purple-200 rounded-lg focus:outline-none focus:border-purple-500 transition-all resize-none text-sm"
-                                placeholder="Your Message"
+                                rows={4}
+                                className="w-full px-4 py-4 bg-white border-2 border-gray-200 rounded-xl focus:outline-none focus:border-purple-500 focus:ring-4 focus:ring-purple-100 transition-all duration-300 resize-none text-base pr-12 shadow-sm group-hover:shadow-md"
+                                placeholder="Tell us about your inquiry..."
                                 aria-required="true"
                                 disabled={formState.isSubmitting}
                               />
-                              <div className="absolute right-3 top-3 w-5 h-5 text-purple-300">
+                              <div className="absolute right-4 top-4 w-6 h-6 text-gray-400 group-focus-within:text-purple-500 transition-colors duration-300">
                                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z" />
+                                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
                                 </svg>
                               </div>
                             </div>
@@ -618,48 +568,51 @@ const Contact = () => {
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ delay: 0.5 }}
                           >
-                            <button
+                            <motion.button
                               type="submit"
                               disabled={formState.isSubmitting}
-                              className="w-full relative overflow-hidden group rounded-lg hover:rounded-full transition-all duration-200"
+                              className="w-full relative overflow-hidden group rounded-xl transition-all duration-300"
+                              whileHover={{ y: -2 }}
+                              whileTap={{ y: 0 }}
                             >
-                              <div className="relative bg-purple-600 text-white py-3 px-6 rounded-md z-10 group-hover:text-white transition-all duration-200">
-                                <span className="relative z-10 flex items-center justify-center">
+                              <div className="relative bg-gradient-to-r from-purple-600 to-purple-700 text-white py-4 px-6 rounded-xl z-10 group-hover:from-purple-700 group-hover:to-purple-800 transition-all duration-300 shadow-lg group-hover:shadow-xl">
+                                <span className="relative z-10 flex items-center justify-center font-semibold">
                                   {formState.isSubmitting ? (
-                                    <div className="flex items-center space-x-2">
+                                    <div className="flex items-center space-x-3">
                                       <div className="flex space-x-1">
                                         {[...Array(3)].map((_, i) => (
                                           <motion.div
                                             key={i}
-                                            className="w-1.5 h-1.5 rounded-full bg-white"
+                                            className="w-2 h-2 rounded-full bg-white"
                                             animate={{
-                                              y: [0, -5, 0],
-                                              opacity: [1, 0.5, 1]
+                                              y: [0, -8, 0],
+                                              opacity: [1, 0.3, 1],
+                                              scale: [1, 1.2, 1]
                                             }}
                                             transition={{
-                                              duration: 0.6,
+                                              duration: 0.8,
                                               repeat: Infinity,
-                                              delay: i * 0.1,
+                                              delay: i * 0.15,
                                               ease: "easeInOut"
                                             }}
                                           />
                                         ))}
                                       </div>
-                                      <span className="ml-2">Sending...</span>
+                                      <span className="ml-2 font-medium">Sending...</span>
                                     </div>
                                   ) : (
                                     <>
-                                      <span>Send</span>
+                                      <span>Send Message</span>
                                       <motion.svg 
                                         xmlns="http://www.w3.org/2000/svg" 
-                                        className="h-4 w-4 ml-2" 
+                                        className="h-5 w-5 ml-3" 
                                         viewBox="0 0 20 20" 
                                         fill="currentColor"
                                         animate={{ 
-                                          x: [0, 5, 0],
+                                          x: [0, 6, 0],
                                           transition: { 
                                             repeat: Infinity, 
-                                            duration: 1.5,
+                                            duration: 2,
                                             repeatType: "loop",
                                             ease: "easeInOut"
                                           }
@@ -672,12 +625,10 @@ const Contact = () => {
                                 </span>
                               </div>
                               <motion.div 
-                                className="absolute bottom-0 left-0 right-0 top-full w-full bg-purple-700 group-hover:top-0 transition-all duration-300 ease-out"
+                                className="absolute inset-0 bg-gradient-to-r from-purple-800 to-purple-900 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-xl"
                                 initial={false}
-                                style={{ top: "100%" }}
-                                whileHover={{ top: 0 }}
                               />
-                            </button>
+                            </motion.button>
                           </motion.div>
                         </motion.form>
                       )}
@@ -853,48 +804,51 @@ const Contact = () => {
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ delay: 0.5 }}
                           >
-                            <button
+                            <motion.button
                               type="submit"
                               disabled={formState.isSubmitting}
-                              className="w-full relative overflow-hidden group rounded-lg hover:rounded-full transition-all duration-200"
+                              className="w-full relative overflow-hidden group rounded-xl transition-all duration-300"
+                              whileHover={{ y: -2 }}
+                              whileTap={{ y: 0 }}
                             >
-                              <div className="relative bg-purple-600 text-white py-2 sm:py-3 px-4 sm:px-6 rounded-md z-10 group-hover:text-white transition-all duration-200">
-                                <span className="relative z-10 flex items-center justify-center text-sm sm:text-base">
+                              <div className="relative bg-gradient-to-r from-purple-600 to-purple-700 text-white py-3 sm:py-4 px-4 sm:px-6 rounded-xl z-10 group-hover:from-purple-700 group-hover:to-purple-800 transition-all duration-300 shadow-lg group-hover:shadow-xl">
+                                <span className="relative z-10 flex items-center justify-center text-sm sm:text-base font-semibold">
                                   {formState.isSubmitting ? (
-                                    <div className="flex items-center space-x-2">
+                                    <div className="flex items-center space-x-3">
                                       <div className="flex space-x-1">
                                         {[...Array(3)].map((_, i) => (
                                           <motion.div
                                             key={i}
-                                            className="w-1.5 h-1.5 rounded-full bg-white"
+                                            className="w-2 h-2 rounded-full bg-white"
                                             animate={{
-                                              y: [0, -5, 0],
-                                              opacity: [1, 0.5, 1]
+                                              y: [0, -8, 0],
+                                              opacity: [1, 0.3, 1],
+                                              scale: [1, 1.2, 1]
                                             }}
                                             transition={{
-                                              duration: 0.6,
+                                              duration: 0.8,
                                               repeat: Infinity,
-                                              delay: i * 0.1,
+                                              delay: i * 0.15,
                                               ease: "easeInOut"
                                             }}
                                           />
                                         ))}
                                       </div>
-                                      <span className="ml-2">Submitting...</span>
+                                      <span className="ml-2 font-medium">Submitting...</span>
                                     </div>
                                   ) : (
                                     <>
-                                      <span>Reserve</span>
+                                      <span>Reserve Now</span>
                                       <motion.svg 
                                         xmlns="http://www.w3.org/2000/svg" 
-                                        className="h-3 w-3 sm:h-4 sm:w-4 ml-2" 
+                                        className="h-4 w-4 sm:h-5 sm:w-5 ml-3" 
                                         viewBox="0 0 20 20" 
                                         fill="currentColor"
                                         animate={{ 
-                                          x: [0, 5, 0],
+                                          x: [0, 6, 0],
                                           transition: { 
                                             repeat: Infinity, 
-                                            duration: 1.5,
+                                            duration: 2,
                                             repeatType: "loop",
                                             ease: "easeInOut"
                                           }
@@ -907,12 +861,10 @@ const Contact = () => {
                                 </span>
                               </div>
                               <motion.div 
-                                className="absolute bottom-0 left-0 right-0 top-full w-full bg-purple-700 group-hover:top-0 transition-all duration-300 ease-out"
+                                className="absolute inset-0 bg-gradient-to-r from-purple-800 to-purple-900 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-xl"
                                 initial={false}
-                                style={{ top: "100%" }}
-                                whileHover={{ top: 0 }}
                               />
-                            </button>
+                            </motion.button>
                           </motion.div>
                         </motion.form>
                       )}
