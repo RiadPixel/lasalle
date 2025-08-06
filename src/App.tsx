@@ -13,6 +13,7 @@ import About from "./components/AboutUs";
 import Portfolio from "./components/portfolio";
 import ContactSection from "./components/ContactSection";
 import Planning from "./components/Planning";
+import WhatsAppChat from "./components/WhatsAppChat";
 
 function App() {
   const [isLoading, setIsLoading] = useState(true);
@@ -63,6 +64,7 @@ function App() {
             <Contact />
           </div>
           <Footer />
+          <WhatsAppChat />
         </>
       )}
     </div>

@@ -217,60 +217,27 @@ const Planning = () => {
     return currentHour >= startHour && currentHour < endHour;
   };
 
-  const handleDownload = () => {
-    const schedule = scheduleData[activeTab];
-    
- 
-    const { jsPDF } = require('jspdf');
-    const doc = new jsPDF();
-    
+  const [isDownloading, setIsDownloading] = useState(false);
 
-    doc.setFontSize(24);
-    doc.setTextColor(139, 92, 246); 
-    doc.text(schedule.title, 20, 30);
+  const handleDownload = async () => {
+    setIsDownloading(true);
     
- 
-    doc.setFontSize(12);
-    doc.setTextColor(75, 85, 99); 
-    doc.text(schedule.description, 20, 45);
-    
-    
-    doc.setFontSize(16);
-    doc.setTextColor(17, 24, 39); 
-    doc.text("Planning Hebdomadaire", 20, 65);
-    
-    let yPosition = 80;
-    daysOfWeek.forEach((day, index) => {
-      const daySchedule = schedule.schedule[day];
-   
-      doc.setFontSize(14);
-      doc.setTextColor(139, 92, 246); 
-      doc.text(`${day}`, 20, yPosition);
+    try {
+     
+      const link = document.createElement('a');
+      link.href = '/planning.pdf';
+      link.download = 'planning.pdf';
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
       
-    
-      doc.setFontSize(10);
-      doc.setTextColor(75, 85, 99); 
-      daySchedule.slots.forEach((slot, slotIndex) => {
-        doc.text(`${slot.time} - ${slot.activity}`, 30, yPosition + 8 + (slotIndex * 8));
-        doc.text(`Coach: ${slot.trainer} | Intensité: ${slot.intensity}`, 35, yPosition + 12 + (slotIndex * 8));
-      });
-      
-      yPosition += 60 + (daySchedule.slots.length * 8);
-      
-      if (yPosition > 250 && index < daysOfWeek.length - 1) {
-        doc.addPage();
-        yPosition = 30;
-      }
-    });
-    
-  
-    doc.setFontSize(10);
-    doc.setTextColor(107, 114, 128); 
-    doc.text("La Salle Gym - 75 Boulevard Chefchaouni, Casablanca", 20, 280);
-    doc.text("Tél: 05 22 66 44 66", 20, 285);
-    
-   
-    doc.save(`planning-${activeTab}-lasalle.pdf`);
+      setTimeout(() => {
+        setIsDownloading(false);
+      }, 2000);
+    } catch (error) {
+      console.error('Error downloading PDF:', error);
+      setIsDownloading(false);
+    }
   };
 
   return (
@@ -596,21 +563,57 @@ const Planning = () => {
                transition={{ duration: 0.5, delay: 0.8 }}
              >
               <motion.button
-                className="bg-gradient-to-r from-purple-600 via-purple-700 to-purple-800 text-white font-bold text-base sm:text-lg py-3 sm:py-4 px-6 sm:px-8 rounded-xl sm:rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 group relative overflow-hidden"
+                className={`font-bold text-base sm:text-lg py-3 sm:py-4 px-6 sm:px-8 rounded-xl sm:rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 group relative overflow-hidden ${
+                  isDownloading 
+                    ? 'bg-gradient-to-r from-purple-600 via-purple-700 to-purple-800 text-white' 
+                    : 'bg-gradient-to-r from-purple-600 via-purple-700 to-purple-800 text-white'
+                }`}
                 onClick={handleDownload}
-                whileHover={{ y: -2 }}
-                whileTap={{ y: 0 }}
+                disabled={isDownloading}
+                whileHover={isDownloading ? {} : { y: -2 }}
+                whileTap={isDownloading ? {} : { y: 0 }}
               >
                 <span className="relative z-10 flex items-center justify-center">
-                  <svg className="w-4 h-4 sm:w-5 sm:h-5 mr-2 sm:mr-3 group-hover:translate-y-1 transition-transform duration-300" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-                  </svg>
-                  Télécharger le Planning (PDF)
+                  {isDownloading ? (
+                    <>
+                      <motion.svg 
+                        className="w-4 h-4 sm:w-5 sm:h-5 mr-2 sm:mr-3" 
+                        fill="none" 
+                        stroke="currentColor" 
+                        strokeWidth="2" 
+                        viewBox="0 0 24 24"
+                        animate={{ rotate: 360 }}
+                        transition={{ duration: 1, repeat: Infinity, ease: "linear" }}
+                      >
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
+                      </motion.svg>
+                      Téléchargement en cours...
+                    </>
+                  ) : (
+                    <>
+                      <svg className="w-4 h-4 sm:w-5 sm:h-5 mr-2 sm:mr-3 group-hover:translate-y-1 transition-transform duration-300" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                      </svg>
+                      Télécharger la planification (PDF)
+                    </>
+                  )}
                 </span>
                 <motion.div 
-                  className="absolute inset-0 bg-gradient-to-r from-purple-700 via-purple-800 to-purple-900 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                  className={`absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 ${
+                    isDownloading 
+                      ? 'bg-gradient-to-r from-purple-700 via-purple-800 to-purple-900' 
+                      : 'bg-gradient-to-r from-purple-700 via-purple-800 to-purple-900'
+                  }`}
                   initial={false}
                 />
+                {isDownloading && (
+                  <motion.div 
+                    className="absolute bottom-0 left-0 h-1 bg-purple-400"
+                    initial={{ width: 0 }}
+                    animate={{ width: "100%" }}
+                    transition={{ duration: 2, ease: "easeInOut" }}
+                  />
+                )}
               </motion.button>
 
             </motion.div>
