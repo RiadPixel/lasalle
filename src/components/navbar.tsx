@@ -60,12 +60,12 @@ function Navbar() {
         ${
           scrolled
             ? "top-6 mx-auto w-[90%] rounded-xl border-b border-gray-200 bg-white shadow-md "
-            : "top-0 w-full bg-transparent md:w-[90%] md:mx-auto"
+            : "top-0 w-full bg-transparent xl:w-[90%] xl:mx-auto"
         }
       `}
     >
-      <div className="relative mx-auto flex w-full items-center justify-between px-4 py-3 md:px-6">
-        <div className="md:hidden">
+      <div className="relative mx-auto flex w-full items-center justify-between px-4 py-3 xl:px-6">
+        <div className="xl:hidden">
           <motion.img
             src={logo}
             alt="Your Logo"
@@ -75,7 +75,7 @@ function Navbar() {
           />
         </div>
 
-        <div className="relative hidden flex-grow items-center justify-start space-x-8 md:flex">
+        <div className="relative hidden flex-grow items-center justify-start space-x-8 xl:flex">
           {links.map((link) => (
             <button
               key={link.name}
@@ -117,7 +117,7 @@ function Navbar() {
           ))}
         </div>
 
-        <div className="hidden flex-shrink-0 md:absolute md:left-1/2 md:block md:-translate-x-1/2 md:transform">
+        <div className="hidden flex-shrink-0 xl:absolute xl:left-1/2 xl:block xl:-translate-x-1/2 xl:transform">
           <motion.img
             src={logo}
             alt="Logo"
@@ -127,7 +127,7 @@ function Navbar() {
           />
         </div>
 
-        <div className="hidden flex-grow items-center justify-end space-x-4 md:flex">
+        <div className="hidden flex-grow items-center justify-end space-x-4 xl:flex">
           <button
             className="hidden h-12 min-w-[140px] items-center justify-center whitespace-nowrap rounded-lg border-2 border-purple-600 bg-white px-8 py-2 text-sm font-bold text-purple-700 ring-offset-background transition-all duration-150 ease-in-out hover:rounded-full focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-purple-600 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 md:inline-flex"
             onClick={() => window.dispatchEvent(new CustomEvent('openContactForm', { detail: { tab: 'reserve' } }))}
@@ -163,7 +163,7 @@ function Navbar() {
 
         <button
           onClick={toggleMenu}
-          className="z-[9999] p-2 text-gray-600 hover:text-purple-600 md:hidden"
+          className="z-[9999] p-2 text-gray-600 hover:text-purple-600 xl:hidden"
         >
           {isOpen ? (
             <X size={24} strokeWidth={3} className="text-purple-600" />
@@ -176,7 +176,7 @@ function Navbar() {
       <AnimatePresence>
         {isOpen && (
           <motion.div
-            className="fixed inset-0 z-[9998] flex flex-col items-center bg-white md:hidden"
+            className="fixed inset-0 z-[9998] flex flex-col items-center bg-white xl:hidden"
             initial="closed"
             animate="open"
             exit="closed"
