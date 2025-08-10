@@ -69,9 +69,9 @@ const Contact = () => {
           formatted: `+212 ${localNumber.slice(0, 2)} ${localNumber.slice(2, 5)} ${localNumber.slice(5, 7)} ${localNumber.slice(7)}`
         };
       } else if (cleanPhone.length < 10) {
-        return { isValid: false, error: `Need ${10 - cleanPhone.length} more digit(s)`, formatted: cleanPhone };
+        return { isValid: false, error: `Il manque ${10 - cleanPhone.length} chiffre(s)`, formatted: cleanPhone };
       } else {
-        return { isValid: false, error: 'Too many digits', formatted: cleanPhone };
+        return { isValid: false, error: 'Trop de chiffres', formatted: cleanPhone };
       }
     } else if (cleanPhone.startsWith('6') || cleanPhone.startsWith('7') || cleanPhone.startsWith('5')) {
     
@@ -82,13 +82,13 @@ const Contact = () => {
           formatted: `+212 ${cleanPhone.slice(0, 2)} ${cleanPhone.slice(2, 5)} ${cleanPhone.slice(5, 7)} ${cleanPhone.slice(7)}`
         };
       } else if (cleanPhone.length < 9) {
-        return { isValid: false, error: `Need ${9 - cleanPhone.length} more digit(s)`, formatted: cleanPhone };
+        return { isValid: false, error: `Il manque ${9 - cleanPhone.length} chiffre(s)`, formatted: cleanPhone };
       } else {
-        return { isValid: false, error: 'Too many digits', formatted: cleanPhone };
+        return { isValid: false, error: 'Trop de chiffres', formatted: cleanPhone };
       }
     }
     
-    return { isValid: false, error: 'Invalid Morocco number format', formatted: cleanPhone };
+    return { isValid: false, error: 'Format de numéro marocain invalide', formatted: cleanPhone };
   };
 
   const handlePhoneChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -168,7 +168,7 @@ const Contact = () => {
     if (!isPhoneValid) {
       setFormState(prev => ({
         ...prev,
-        error: 'Please enter a valid Morocco phone number'
+        error: 'Veuillez saisir un numéro marocain valide'
       }));
       return;
     }
@@ -188,7 +188,7 @@ const Contact = () => {
     } catch {
       setFormState(prev => ({
         ...prev,
-        error: 'Error submitting reservation.'
+        error: 'Erreur lors de l’envoi de la réservation.'
       }));
     } finally {
       setFormState(prev => ({ ...prev, isSubmitting: false }));
@@ -220,7 +220,7 @@ const Contact = () => {
     } catch {
       setFormState(prev => ({
         ...prev,
-        error: 'Error sending message.'
+        error: 'Erreur lors de l’envoi du message.'
       }));
     } finally {
       setFormState(prev => ({ ...prev, isSubmitting: false }));
@@ -293,23 +293,16 @@ const Contact = () => {
               exit={{ opacity: 0 }}
               className="fixed inset-0 bg-purple-900/50 backdrop-blur-sm z-50"
               onClick={handleClose}
-              style={{ pointerEvents: 'auto' }}
             />
             <motion.div
               initial={{ opacity: 0, scale: 0.9, y: 20 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.9, y: 20 }}
               transition={{ type: "spring", damping: 25, stiffness: 300 }}
-              className="fixed inset-0 flex items-center justify-center z-50 px-4 py-6"
-              style={{ pointerEvents: 'none' }}
+              className="fixed inset-0 flex items-center justify-center z-50 px-4 py-6 pointer-events-none"
             >
               <div 
-                className="bg-white w-full max-w-md rounded-xl shadow-xl overflow-hidden border border-purple-200"
-                style={{ 
-                  pointerEvents: 'auto', 
-                  maxHeight: '90vh',
-                  minHeight: 'auto'
-                }}
+                className="bg-white w-full max-w-md rounded-xl shadow-xl overflow-hidden border border-purple-200 pointer-events-auto max-h-[90vh]"
                 onClick={(e) => e.stopPropagation()}
               >
                 <motion.div 
@@ -323,16 +316,14 @@ const Contact = () => {
                   <div className="flex justify-center mb-6 sm:mb-8">
                     <div className="relative flex bg-purple-100 rounded-full p-1 w-[240px] sm:w-[260px] h-10 sm:h-12 shadow-inner">
                       <button
-                        className={`flex-1 z-10 relative font-semibold text-xs sm:text-sm transition-colors duration-200 px-4 sm:px-6 py-2 rounded-full focus:outline-none ${activeTab === 'contact' ? 'text-white' : 'text-purple-600'}`}
-                        style={{ background: 'none', border: 'none' }}
+                        className={`flex-1 z-10 relative font-semibold text-xs sm:text-sm transition-colors duration-200 px-4 sm:px-6 py-2 rounded-full focus:outline-none bg-transparent border-0 ${activeTab === 'contact' ? 'text-white' : 'text-purple-600'}`}
                         onClick={() => setActiveTab('contact')}
                         disabled={formState.isSubmitting}
                       >
                         Contact
                       </button>
                       <button
-                        className={`flex-1 z-10 relative font-semibold text-xs sm:text-sm transition-colors duration-200 px-4 sm:px-6 py-2 rounded-full focus:outline-none ${activeTab === 'reserve' ? 'text-white' : 'text-purple-600'}`}
-                        style={{ background: 'none', border: 'none' }}
+                        className={`flex-1 z-10 relative font-semibold text-xs sm:text-sm transition-colors duration-200 px-4 sm:px-6 py-2 rounded-full focus:outline-none bg-transparent border-0 ${activeTab === 'reserve' ? 'text-white' : 'text-purple-600'}`}
                         onClick={() => setActiveTab('reserve')}
                         disabled={formState.isSubmitting}
                       >
@@ -371,9 +362,9 @@ const Contact = () => {
                     animate={{ y: 0, opacity: 1 }}
                     transition={{ duration: 0.3 }}
                   >
-                    {activeTab === 'contact' ? 'Get In Touch' : 'Reserve'}
+                    {activeTab === 'contact' ? 'Nous contacter' : 'Réserver'}
                   </motion.h2>
-                  <div className="overflow-y-auto" style={{ maxHeight: 'calc(90vh - 120px)' }}>
+                  <div className="overflow-y-auto max-h-[calc(90vh-120px)]">
                     <AnimatePresence mode="wait">
                       {formState.isSuccess && (
                         <motion.div
@@ -421,13 +412,13 @@ const Contact = () => {
                               animate={{ opacity: 1, y: 0 }}
                               transition={{ delay: 0.6 }}
                             >
-                                                             <motion.h3 
+                              <motion.h3 
                                  className="text-2xl font-bold text-purple-800"
                                  initial={{ opacity: 0 }}
                                  animate={{ opacity: 1 }}
                                  transition={{ delay: 0.7 }}
                                >
-                                 {activeTab === 'contact' ? 'Message Sent Successfully!' : 'Reservation Confirmed!'}
+                                 {activeTab === 'contact' ? 'Message envoyé avec succès !' : 'Réservation confirmée !'}
                                </motion.h3>
                                <motion.p 
                                  className="text-purple-700 text-lg"
@@ -436,8 +427,8 @@ const Contact = () => {
                                  transition={{ delay: 0.8 }}
                                >
                                 {activeTab === 'contact' 
-                                  ? 'Thank you for reaching out. We\'ll get back to you within 24 hours.'
-                                  : 'Your reservation has been submitted successfully! We\'ll contact you soon.'
+                                  ? 'Merci pour votre message. Nous vous répondrons sous 24 heures.'
+                                  : 'Votre réservation a été envoyée avec succès ! Nous vous contacterons bientôt.'
                                 }
                               </motion.p>
                               
@@ -480,10 +471,10 @@ const Contact = () => {
                             animate={{ x: 0, opacity: 1 }}
                             transition={{ duration: 0.4, delay: 0.1 }}
                           >
-                            <label htmlFor="name" className="block text-sm font-semibold text-gray-700 mb-3 uppercase tracking-wide">
+                          <label htmlFor="name" className="block text-sm font-semibold text-gray-700 mb-3 uppercase tracking-wide">
                               <span className="inline-flex items-center">
                                 <span className="mr-2 text-purple-500">✦</span>
-                                <span>Full Name</span>
+                                <span>Nom complet</span>
                               </span>
                             </label>
                             <div className="relative group">
@@ -493,7 +484,7 @@ const Contact = () => {
                                 name="name"
                                 required
                                 className="w-full px-4 py-4 bg-white border-2 border-gray-200 rounded-xl focus:outline-none focus:border-purple-500 focus:ring-4 focus:ring-purple-100 transition-all duration-300 text-base pr-12 shadow-sm group-hover:shadow-md"
-                                placeholder="Enter your full name"
+                                placeholder="Entrez votre nom complet"
                                 aria-required="true"
                                 disabled={formState.isSubmitting}
                               />
@@ -512,7 +503,7 @@ const Contact = () => {
                             <label htmlFor="email" className="block text-sm font-semibold text-gray-700 mb-3 uppercase tracking-wide">
                               <span className="inline-flex items-center">
                                 <span className="mr-2 text-purple-500">✦</span>
-                                <span>Email Address</span>
+                                <span>Adresse e-mail</span>
                               </span>
                             </label>
                             <div className="relative group">
@@ -522,7 +513,7 @@ const Contact = () => {
                                 name="email"
                                 required
                                 className="w-full px-4 py-4 bg-white border-2 border-gray-200 rounded-xl focus:outline-none focus:border-purple-500 focus:ring-4 focus:ring-purple-100 transition-all duration-300 text-base pr-12 shadow-sm group-hover:shadow-md"
-                                placeholder="Enter your email address"
+                                placeholder="Entrez votre adresse e-mail"
                                 aria-required="true"
                                 disabled={formState.isSubmitting}
                               />
@@ -551,7 +542,7 @@ const Contact = () => {
                                 required
                                 rows={4}
                                 className="w-full px-4 py-4 bg-white border-2 border-gray-200 rounded-xl focus:outline-none focus:border-purple-500 focus:ring-4 focus:ring-purple-100 transition-all duration-300 resize-none text-base pr-12 shadow-sm group-hover:shadow-md"
-                                placeholder="Tell us about your inquiry..."
+                                placeholder="Parlez-nous de votre demande..."
                                 aria-required="true"
                                 disabled={formState.isSubmitting}
                               />
@@ -598,11 +589,11 @@ const Contact = () => {
                                           />
                                         ))}
                                       </div>
-                                      <span className="ml-2 font-medium">Sending...</span>
+                                      <span className="ml-2 font-medium">Envoi...</span>
                                     </div>
                                   ) : (
                                     <>
-                                      <span>Send Message</span>
+                                      <span>Envoyer le message</span>
                                       <motion.svg 
                                         xmlns="http://www.w3.org/2000/svg" 
                                         className="h-5 w-5 ml-3" 
@@ -648,24 +639,24 @@ const Contact = () => {
                             animate={{ x: 0, opacity: 1 }}
                             transition={{ duration: 0.3, delay: 0.1 }}
                           >
-                            <label htmlFor="firstName" className="block text-xs sm:text-sm font-medium text-purple-700 mb-1 sm:mb-2 uppercase tracking-wide group">
+                            <label htmlFor="firstName" className="block text-sm font-semibold text-gray-700 mb-3 uppercase tracking-wide">
                               <span className="inline-flex items-center">
-                                <span className="mr-1 sm:mr-2">✦</span>
-                                <span>First Name</span>
+                                <span className="mr-2 text-purple-500">✦</span>
+                                <span>Prénom</span>
                               </span>
                             </label>
-                            <div className="relative">
+                            <div className="relative group">
                               <input
                                 type="text"
                                 id="firstName"
                                 name="firstName"
                                 required
-                                className="w-full px-3 sm:px-4 py-2 sm:py-3 pl-10 sm:pl-12 bg-purple-50 border-2 border-purple-200 rounded-lg focus:outline-none focus:border-purple-500 transition-all text-sm pr-8 sm:pr-10 shadow-sm"
-                                placeholder="First Name"
+                                className="w-full px-4 py-4 bg-white border-2 border-gray-200 rounded-xl focus:outline-none focus:border-purple-500 focus:ring-4 focus:ring-purple-100 transition-all duration-300 text-base pr-12 shadow-sm group-hover:shadow-md"
+                                placeholder="Entrez votre prénom"
                                 aria-required="true"
                                 disabled={formState.isSubmitting}
                               />
-                              <FiUser className="absolute left-2 sm:left-3 top-1/2 -translate-y-1/2 text-purple-400 w-4 h-4 sm:w-5 sm:h-5" />
+                              <FiUser className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-400 group-focus-within:text-purple-500 transition-colors duration-300 w-5 h-5" />
                             </div>
                           </motion.div>
                           <motion.div
@@ -673,24 +664,24 @@ const Contact = () => {
                             animate={{ x: 0, opacity: 1 }}
                             transition={{ duration: 0.3, delay: 0.2 }}
                           >
-                            <label htmlFor="lastName" className="block text-xs sm:text-sm font-medium text-purple-700 mb-1 sm:mb-2 uppercase tracking-wide group">
+                            <label htmlFor="lastName" className="block text-sm font-semibold text-gray-700 mb-3 uppercase tracking-wide">
                               <span className="inline-flex items-center">
-                                <span className="mr-1 sm:mr-2">✦</span>
-                                <span>Last Name</span>
+                                <span className="mr-2 text-purple-500">✦</span>
+                                <span>Nom</span>
                               </span>
                             </label>
-                            <div className="relative">
+                            <div className="relative group">
                               <input
                                 type="text"
                                 id="lastName"
                                 name="lastName"
                                 required
-                                className="w-full px-3 sm:px-4 py-2 sm:py-3 pl-10 sm:pl-12 bg-purple-50 border-2 border-purple-200 rounded-lg focus:outline-none focus:border-purple-500 transition-all text-sm pr-8 sm:pr-10 shadow-sm"
-                                placeholder="Last Name"
+                                className="w-full px-4 py-4 bg-white border-2 border-gray-200 rounded-xl focus:outline-none focus:border-purple-500 focus:ring-4 focus:ring-purple-100 transition-all duration-300 text-base pr-12 shadow-sm group-hover:shadow-md"
+                                placeholder="Entrez votre nom"
                                 aria-required="true"
                                 disabled={formState.isSubmitting}
                               />
-                              <FiUser className="absolute left-2 sm:left-3 top-1/2 -translate-y-1/2 text-purple-400 w-4 h-4 sm:w-5 sm:h-5" />
+                              <FiUser className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-400 group-focus-within:text-purple-500 transition-colors duration-300 w-5 h-5" />
                             </div>
                           </motion.div>
                           <motion.div
@@ -698,44 +689,44 @@ const Contact = () => {
                             animate={{ x: 0, opacity: 1 }}
                             transition={{ duration: 0.3, delay: 0.3 }}
                           >
-                            <label htmlFor="phone" className="block text-xs sm:text-sm font-medium text-purple-700 mb-1 sm:mb-2 uppercase tracking-wide group">
+                            <label htmlFor="phone" className="block text-sm font-semibold text-gray-700 mb-3 uppercase tracking-wide">
                               <span className="inline-flex items-center">
-                                <span className="mr-1 sm:mr-2">✦</span>
-                                <span>Phone Number (Morocco)</span>
+                                <span className="mr-2 text-purple-500">✦</span>
+                                <span>Numéro de téléphone (Maroc)</span>
                               </span>
                             </label>
-                            <div className="relative">
+                            <div className="relative group">
                               <input
                                 type="tel"
                                 id="phone"
                                 name="phone"
                                 required
-                                className={`w-full px-3 sm:px-4 py-2 sm:py-3 pl-10 sm:pl-12 bg-purple-50 border-2 rounded-lg focus:outline-none transition-all text-sm pr-8 sm:pr-10 shadow-sm ${
-                                  phoneNumber.length > 0 
-                                    ? isPhoneValid 
-                                      ? 'border-green-500 focus:border-green-600' 
+                                className={`w-full px-4 py-4 bg-white border-2 rounded-xl focus:outline-none focus:border-purple-500 focus:ring-4 focus:ring-purple-100 transition-all duration-300 text-base pr-16 shadow-sm group-hover:shadow-md ${
+                                  phoneNumber.length > 0
+                                    ? isPhoneValid
+                                      ? 'border-green-500 focus:border-green-600'
                                       : 'border-red-500 focus:border-red-600'
-                                    : 'border-purple-200 focus:border-purple-500'
+                                    : 'border-gray-200'
                                 }`}
-                                placeholder="06 12 34 56 78 (10 digits)"
+                                placeholder="Entrez votre numéro de téléphone"
                                 aria-required="true"
                                 disabled={formState.isSubmitting}
                                 value={phoneNumber}
                                 onChange={handlePhoneChange}
                               />
-                              <FiPhone className={`absolute left-2 sm:left-3 top-1/2 -translate-y-1/2 w-4 h-4 sm:w-5 sm:h-5 ${
-                                phoneNumber.length > 0 
-                                  ? isPhoneValid 
-                                    ? 'text-green-500' 
+                              <FiPhone className={`absolute right-3 sm:right-4 top-1/2 -translate-y-1/2 w-5 h-5 ${
+                                phoneNumber.length > 0
+                                  ? isPhoneValid
+                                    ? 'text-green-500'
                                     : 'text-red-500'
-                                  : 'text-purple-400'
+                                  : 'text-gray-400'
                               }`} />
                               {phoneNumber.length > 0 && (
-                                <div className="absolute right-2 sm:right-3 top-1/2 -translate-y-1/2">
+                                <div className="absolute right-10 sm:right-12 top-1/2 -translate-y-1/2">
                                   {isPhoneValid ? (
-                                    <FiCheck className="w-4 h-4 sm:w-5 sm:h-5 text-green-500" />
+                                    <FiCheck className="w-5 h-5 text-green-500" />
                                   ) : (
-                                    <FiX className="w-4 h-4 sm:w-5 sm:h-5 text-red-500" />
+                                    <FiX className="w-5 h-5 text-red-500" />
                                   )}
                                 </div>
                               )}
@@ -759,7 +750,7 @@ const Contact = () => {
                                 transition={{ duration: 0.2 }}
                               >
                                 <FiCheck className="mr-1 w-3 h-3" />
-                                Valid Morocco number (+212 format)
+                                Numéro marocain valide (format +212)
                               </motion.div>
                             )}
                             {phoneNumber.length === 0 && (
@@ -769,7 +760,7 @@ const Contact = () => {
                                 animate={{ opacity: 1, y: 0 }}
                                 transition={{ duration: 0.2 }}
                               >
-                                <span>Enter 06, 07, or 05 followed by 8 digits</span>
+                                <span>Entrez 06, 07 ou 05 suivi de 8 chiffres</span>
                               </motion.div>
                             )}
                           </motion.div>
@@ -778,24 +769,24 @@ const Contact = () => {
                             animate={{ x: 0, opacity: 1 }}
                             transition={{ duration: 0.3, delay: 0.4 }}
                           >
-                            <label htmlFor="emailReserve" className="block text-xs sm:text-sm font-medium text-purple-700 mb-1 sm:mb-2 uppercase tracking-wide group">
+                            <label htmlFor="emailReserve" className="block text-sm font-semibold text-gray-700 mb-3 uppercase tracking-wide">
                               <span className="inline-flex items-center">
-                                <span className="mr-1 sm:mr-2">✦</span>
-                                <span>Email</span>
+                                <span className="mr-2 text-purple-500">✦</span>
+                                <span>E-mail</span>
                               </span>
                             </label>
-                            <div className="relative">
+                            <div className="relative group">
                               <input
                                 type="email"
                                 id="emailReserve"
                                 name="emailReserve"
                                 required
-                                className="w-full px-3 sm:px-4 py-2 sm:py-3 pl-10 sm:pl-12 bg-purple-50 border-2 border-purple-200 rounded-lg focus:outline-none focus:border-purple-500 transition-all text-sm pr-8 sm:pr-10 shadow-sm"
-                                placeholder="Email"
+                                className="w-full px-4 py-4 bg-white border-2 border-gray-200 rounded-xl focus:outline-none focus:border-purple-500 focus:ring-4 focus:ring-purple-100 transition-all duration-300 text-base pr-12 shadow-sm group-hover:shadow-md"
+                                placeholder="Entrez votre e-mail"
                                 aria-required="true"
                                 disabled={formState.isSubmitting}
                               />
-                              <FiMail className="absolute left-2 sm:left-3 top-1/2 -translate-y-1/2 text-purple-400 w-4 h-4 sm:w-5 sm:h-5" />
+                              <FiMail className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-400 group-focus-within:text-purple-500 transition-colors duration-300 w-5 h-5" />
                             </div>
                           </motion.div>
                           <motion.div 
@@ -811,8 +802,8 @@ const Contact = () => {
                               whileHover={{ y: -2 }}
                               whileTap={{ y: 0 }}
                             >
-                              <div className="relative bg-gradient-to-r from-purple-600 to-purple-700 text-white py-3 sm:py-4 px-4 sm:px-6 rounded-xl z-10 group-hover:from-purple-700 group-hover:to-purple-800 transition-all duration-300 shadow-lg group-hover:shadow-xl">
-                                <span className="relative z-10 flex items-center justify-center text-sm sm:text-base font-semibold">
+                              <div className="relative bg-gradient-to-r from-purple-600 to-purple-700 text-white py-4 px-6 rounded-xl z-10 group-hover:from-purple-700 group-hover:to-purple-800 transition-all duration-300 shadow-lg group-hover:shadow-xl">
+                                <span className="relative z-10 flex items-center justify-center font-semibold">
                                   {formState.isSubmitting ? (
                                     <div className="flex items-center space-x-3">
                                       <div className="flex space-x-1">
@@ -834,11 +825,11 @@ const Contact = () => {
                                           />
                                         ))}
                                       </div>
-                                      <span className="ml-2 font-medium">Submitting...</span>
+                                      <span className="ml-2 font-medium">Envoi...</span>
                                     </div>
                                   ) : (
                                     <>
-                                      <span>Reserve Now</span>
+                                      <span>Réserver maintenant</span>
                                       <motion.svg 
                                         xmlns="http://www.w3.org/2000/svg" 
                                         className="h-4 w-4 sm:h-5 sm:w-5 ml-3" 

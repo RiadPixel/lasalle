@@ -15,64 +15,64 @@ interface GridItem {
 const gridItems: GridItem[] = [
   {
     id: 1,
-    title: "Strength Training",
-    description: "Build muscle and increase strength with our professional weightlifting equipment and guidance",
+    title: "Musculation",
+    description: "Développez votre force avec nos équipements de musculation et l’accompagnement de nos coachs.",
     media: "https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=800&h=800&fit=crop",
     type: "image",
   },
   {
     id: 2,
-    title: "Cardio Workout",
-    description: "High-intensity cardio sessions to boost your endurance and burn calories effectively",
+    title: "Cardio",
+    description: "Séances cardio pour améliorer votre endurance et brûler des calories efficacement.",
     media: "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4",
     type: "video",
   },
   {
     id: 3,
-    title: "Functional Training",
-    description: "Improve your daily movement patterns with functional fitness exercises and equipment",
+    title: "Entraînement fonctionnel",
+    description: "Améliorez vos mouvements du quotidien grâce à des exercices fonctionnels adaptés.",
     media: "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=800&h=800&fit=crop",
     type: "image",
   },
   {
     id: 4,
-    title: "Boxing Classes",
-    description: "Learn boxing techniques while getting an incredible full-body workout in our boxing studio",
+    title: "Cours de boxe",
+    description: "Apprenez les techniques de boxe et profitez d’un entraînement complet du corps.",
     media: "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4",
     type: "video",
   },
   {
     id: 5,
-    title: "Yoga & Flexibility",
-    description: "Enhance your flexibility and mental well-being with our peaceful yoga and stretching classes",
+    title: "Yoga & souplesse",
+    description: "Améliorez votre mobilité et votre bien‑être grâce à nos cours de yoga et d’étirements.",
     media: "https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?w=800&h=800&fit=crop",
     type: "image",
   },
   {
     id: 6,
-    title: "Group Fitness",
-    description: "Join energetic group classes that combine fun with effective workouts for all fitness levels",
+    title: "Cours collectifs",
+    description: "Participez à des cours dynamiques et motivants, accessibles à tous les niveaux.",
     media: "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4",
     type: "video",
   },
   {
     id: 7,
-    title: "Personal Training",
-    description: "Get personalized attention with our certified trainers for maximum results and proper form",
+    title: "Coaching personnalisé",
+    description: "Bénéficiez d’un accompagnement individuel par nos coachs certifiés pour des résultats optimaux.",
     media: "https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?w=800&h=800&fit=crop",
     type: "image",
   },
   {
     id: 8,
-    title: "Recovery Zone",
-    description: "Relax and recover with our massage therapy, sauna, and stretching areas after intense workouts",
+    title: "Zone de récupération",
+    description: "Détendez‑vous et récupérez avec nos espaces dédiés après vos entraînements.",
     media: "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerEscapes.mp4",
     type: "video",
   },
   {
     id: 9,
-    title: "Swimming Pool",
-    description: "Enjoy low-impact workouts and relaxation in our heated indoor swimming pool facility",
+    title: "Piscine",
+    description: "Profitez d’un entraînement à faible impact et d’un moment de détente dans notre piscine chauffée.",
     media: "https://images.unsplash.com/photo-1576013551627-0cc20b96c2a7?w=800&h=800&fit=crop",
     type: "image",
   },
@@ -250,7 +250,7 @@ function FrameComponent({ item, isHovered, showFrames, autoPlay, muted, isInView
         )}
       </AnimatePresence>
 
-      <div className="absolute inset-0 p-3 sm:p-4 lg:p-6 flex flex-col justify-end" style={{ zIndex: 5 }}>
+      <div className="absolute inset-0 p-3 sm:p-4 lg:p-6 flex flex-col justify-center items-center text-center" style={{ zIndex: 5 }}>
         <motion.div
           animate={{
             y: isHovered ? 0 : 10,
@@ -366,18 +366,18 @@ export default function GymPortfolio() {
   }
 
   return (
-    <div ref={sectionRef} className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100 text-gray-900 overflow-hidden relative">
+    <div ref={sectionRef} className="min-h-screen bg-white text-gray-900 overflow-hidden relative">
       <div className="max-w-7xl mx-auto flex flex-col lg:flex-row gap-6 lg:gap-8 pt-6 lg:pt-8 pb-4 px-4 lg:px-6 relative z-10">
         
         <div className="w-full lg:w-80 xl:w-96 flex-shrink-0 mb-4 lg:mb-0">
           
           <div className="block lg:hidden mb-6">
             <div className="text-center mb-4">
-              <h1 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-1">
-                LA SALLE GYM MOROCCO
+              <h1 className="text-2xl sm:text-3xl font-semibold text-black mb-1">
+                LaSalle Gallery
               </h1>
               <div className="w-20 h-0.5 bg-black mx-auto mb-3"></div>
-              <h3 className="text-lg sm:text-xl font-semibold text-gray-800 mb-2">See Our Workout Gallery</h3>
+              <h3 className="text-lg sm:text-xl font-semibold text-purple-600 mb-2">See Our Workout Gallery</h3>
               <p className="text-sm text-gray-600 leading-relaxed px-4">
                 Explore our state-of-the-art facilities and diverse workout programs designed for all fitness levels.
               </p>
@@ -386,11 +386,11 @@ export default function GymPortfolio() {
 
           <div className="hidden lg:block">
             <div className="mb-6">
-              <h1 className="text-3xl lg:text-4xl xl:text-5xl font-bold text-gray-900 mb-3">
-                LA SALLE GYM MOROCCO
+              <h1 className="text-3xl lg:text-4xl xl:text-5xl font-semibold text-black mb-3">
+                LaSalle Gallery
               </h1>
               <div className="w-24 h-0.5 bg-black mb-4"></div>
-              <h3 className="text-xl lg:text-2xl font-semibold text-gray-800 mb-4">See Our Workout Gallery</h3>
+              <h3 className="text-xl lg:text-2xl font-semibold text-purple-600 mb-4">See Our Workout Gallery</h3>
               <div className="text-sm lg:text-base text-gray-600 leading-relaxed space-y-3">
                 <p>
                   Découvrez notre réseau de salles de sport au Maroc. Nous sommes une équipe passionnée de professionnels de la remise en forme qui se sont réunis pour créer un espace de fitness exceptionnel pour tous les niveaux et tous les objectifs.

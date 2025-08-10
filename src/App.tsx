@@ -14,6 +14,7 @@ import Portfolio from "./components/portfolio";
 import ContactSection from "./components/ContactSection";
 import Planning from "./components/Planning";
 import WhatsAppChat from "./components/WhatsAppChat";
+import TrainersTeam from "./components/TrainersTeam";
 
 function App() {
   const [isLoading, setIsLoading] = useState(true);
@@ -42,14 +43,13 @@ function App() {
           <div id="portfolio">
             <Portfolio />
           </div>
-          <div id="foryou">
-            <ForYou />
+          <div id="trainers">
+            <TrainersTeam />
           </div>
+         
           <div id="planning">
             <Planning />
-          </div>
-          <div id="withus">
-            <WithUs />
+          
           </div>
           <div id="pricing">
             <Pricing />

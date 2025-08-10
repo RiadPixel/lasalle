@@ -615,7 +615,6 @@ const Planning = () => {
                   />
                 )}
               </motion.button>
-
             </motion.div>
           </motion.div>
         </AnimatePresence>
@@ -624,4 +623,4 @@ const Planning = () => {
   );
 };
 
-export default Planning; 
+export default Planning;
