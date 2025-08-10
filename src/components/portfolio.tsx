@@ -17,7 +17,7 @@ const gridItems: GridItem[] = [
     id: 1,
     title: "Musculation",
     description: "Développez votre force avec nos équipements de musculation et l’accompagnement de nos coachs.",
-    media: "https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=800&h=800&fit=crop",
+    media: "https://images.pexels.com/photos/1552242/pexels-photo-1552242.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
     type: "image",
   },
   {
@@ -25,13 +25,13 @@ const gridItems: GridItem[] = [
     title: "Cardio",
     description: "Séances cardio pour améliorer votre endurance et brûler des calories efficacement.",
     media: "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4",
-    type: "video",
+    type: "video", 
   },
   {
     id: 3,
     title: "Entraînement fonctionnel",
     description: "Améliorez vos mouvements du quotidien grâce à des exercices fonctionnels adaptés.",
-    media: "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=800&h=800&fit=crop",
+    media: "https://images.pexels.com/photos/4162489/pexels-photo-4162489.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
     type: "image",
   },
   {
@@ -39,13 +39,13 @@ const gridItems: GridItem[] = [
     title: "Cours de boxe",
     description: "Apprenez les techniques de boxe et profitez d’un entraînement complet du corps.",
     media: "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4",
-    type: "video",
+    type: "video", 
   },
   {
     id: 5,
     title: "Yoga & souplesse",
     description: "Améliorez votre mobilité et votre bien‑être grâce à nos cours de yoga et d’étirements.",
-    media: "https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?w=800&h=800&fit=crop",
+    media: "https://images.pexels.com/photos/4056535/pexels-photo-4056535.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
     type: "image",
   },
   {
@@ -53,13 +53,13 @@ const gridItems: GridItem[] = [
     title: "Cours collectifs",
     description: "Participez à des cours dynamiques et motivants, accessibles à tous les niveaux.",
     media: "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4",
-    type: "video",
+    type: "video", 
   },
   {
     id: 7,
     title: "Coaching personnalisé",
     description: "Bénéficiez d’un accompagnement individuel par nos coachs certifiés pour des résultats optimaux.",
-    media: "https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?w=800&h=800&fit=crop",
+    media: "https://images.pexels.com/photos/949126/pexels-photo-949126.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
     type: "image",
   },
   {
@@ -67,22 +67,16 @@ const gridItems: GridItem[] = [
     title: "Zone de récupération",
     description: "Détendez‑vous et récupérez avec nos espaces dédiés après vos entraînements.",
     media: "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerEscapes.mp4",
-    type: "video",
+    type: "video", 
   },
   {
     id: 9,
     title: "Piscine",
     description: "Profitez d’un entraînement à faible impact et d’un moment de détente dans notre piscine chauffée.",
-    media: "https://images.unsplash.com/photo-1576013551627-0cc20b96c2a7?w=800&h=800&fit=crop",
+    media: "https://images.pexels.com/photos/261181/pexels-photo-261181.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
     type: "image",
   },
 ]
-
-const classicFrame = {
-  corner: `data:image/svg+xml,%3Csvg width='32' height='32' viewBox='0 0 32 32' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 0L32 0L32 6L6 6L6 32L0 32L0 0Z' fill='%23000000'/%3E%3Cpath d='M2 2L30 2L30 4L4 4L4 30L2 30L2 2Z' fill='%23333333'/%3E%3C/svg%3E`,
-  edgeHorizontal: `data:image/svg+xml,%3Csvg width='32' height='6' viewBox='0 0 32 6' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Crect x='0' y='0' width='32' height='6' fill='%23000000'/%3E%3Crect x='0' y='2' width='32' height='2' fill='%23333333'/%3E%3C/svg%3E`,
-  edgeVertical: `data:image/svg+xml,%3Csvg width='6' height='32' viewBox='0 0 6 32' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Crect x='0' y='0' width='6' height='32' fill='%23000000'/%3E%3Crect x='2' y='0' width='2' height='32' fill='%23333333'/%3E%3C/svg%3E`,
-}
 
 interface FrameComponentProps {
   item: GridItem
@@ -101,7 +95,6 @@ function FrameComponent({ item, isHovered, showFrames, autoPlay, muted, isInView
     if (videoRef.current && item.type === "video") {
       const video = videoRef.current
       video.muted = muted
-      
       
       if (isInView && (autoPlay || isHovered)) {
         const playPromise = video.play()
@@ -166,86 +159,26 @@ function FrameComponent({ item, isHovered, showFrames, autoPlay, muted, isInView
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
+            transition={{ duration: 0.4 }}
             className="absolute inset-0 pointer-events-none"
             style={{ zIndex: 10 }}
           >
-            <div className="absolute inset-0 shadow-lg" style={{
-              boxShadow: `
-                inset 0 0 0 4px #000000,
-                inset 0 0 0 6px #333333,
-                0 4px 12px rgba(0,0,0,0.3),
-                0 2px 6px rgba(0,0,0,0.15)
-              `
-            }} />
-            
-            <div
-              className="absolute top-0 left-0 w-8 h-8 bg-contain bg-no-repeat"
-              style={{ 
-                backgroundImage: `url(${classicFrame.corner})`,
-                filter: 'drop-shadow(2px 2px 4px rgba(0,0,0,0.3))'
-              }}
-            />
-            <div
-              className="absolute top-0 right-0 w-8 h-8 bg-contain bg-no-repeat"
-              style={{
-                backgroundImage: `url(${classicFrame.corner})`,
-                transform: "scaleX(-1)",
-                filter: 'drop-shadow(-2px 2px 4px rgba(0,0,0,0.3))'
-              }}
-            />
-            <div
-              className="absolute bottom-0 left-0 w-8 h-8 bg-contain bg-no-repeat"
-              style={{
-                backgroundImage: `url(${classicFrame.corner})`,
-                transform: "scaleY(-1)",
-                filter: 'drop-shadow(2px -2px 4px rgba(0,0,0,0.3))'
-              }}
-            />
-            <div
-              className="absolute bottom-0 right-0 w-8 h-8 bg-contain bg-no-repeat"
-              style={{
-                backgroundImage: `url(${classicFrame.corner})`,
-                transform: "scale(-1, -1)",
-                filter: 'drop-shadow(-2px -2px 4px rgba(0,0,0,0.3))'
-              }}
-            />
-
-            <div
-              className="absolute top-0 left-8 right-8 h-2"
-              style={{
-                backgroundImage: `url(${classicFrame.edgeHorizontal})`,
-                backgroundSize: "auto 8px",
-                backgroundRepeat: "repeat-x",
-              }}
-            />
-            <div
-              className="absolute bottom-0 left-8 right-8 h-2"
-              style={{
-                backgroundImage: `url(${classicFrame.edgeHorizontal})`,
-                backgroundSize: "auto 8px",
-                backgroundRepeat: "repeat-x",
-                transform: "rotate(180deg)",
-              }}
-            />
-            <div
-              className="absolute left-0 top-8 bottom-8 w-2"
-              style={{
-                backgroundImage: `url(${classicFrame.edgeVertical})`,
-                backgroundSize: "8px auto",
-                backgroundRepeat: "repeat-y",
-              }}
-            />
-            <div
-              className="absolute right-0 top-8 bottom-8 w-2"
-              style={{
-                backgroundImage: `url(${classicFrame.edgeVertical})`,
-                backgroundSize: "8px auto",
-                backgroundRepeat: "repeat-y",
-                transform: "scaleX(-1)",
-              }}
-            />
-
-            <div className="absolute inset-3 border border-gray-300/20" />
+            <div className="absolute top-0 left-0 w-8 h-8">
+              <div className="absolute top-0 left-0 w-full h-1.5 bg-black shadow-lg" />
+              <div className="absolute top-0 left-0 w-1.5 h-full bg-black shadow-lg" />
+            </div>
+            <div className="absolute top-0 right-0 w-8 h-8">
+              <div className="absolute top-0 right-0 w-full h-1.5 bg-black shadow-lg" />
+              <div className="absolute top-0 right-0 w-1.5 h-full bg-black shadow-lg" />
+            </div>
+            <div className="absolute bottom-0 left-0 w-8 h-8">
+              <div className="absolute bottom-0 left-0 w-full h-1.5 bg-black shadow-lg" />
+              <div className="absolute bottom-0 left-0 w-1.5 h-full bg-black shadow-lg" />
+            </div>
+            <div className="absolute bottom-0 right-0 w-8 h-8">
+              <div className="absolute bottom-0 right-0 w-full h-1.5 bg-black shadow-lg" />
+              <div className="absolute bottom-0 right-0 w-1.5 h-full bg-black shadow-lg" />
+            </div>
           </motion.div>
         )}
       </AnimatePresence>
@@ -271,18 +204,18 @@ function FrameComponent({ item, isHovered, showFrames, autoPlay, muted, isInView
         </motion.div>
 
         <motion.div
-          className="absolute top-2 sm:top-3 lg:top-4 left-2 sm:left-3 lg:left-4 flex items-center gap-1 sm:gap-2 bg-white/90 backdrop-blur-sm rounded-full px-2 sm:px-3 py-1"
+          className="absolute top-2 sm:top-3 lg:top-4 left-2 sm:left-3 lg:left-4 flex items-center gap-1 sm:gap-2 bg-black/80 backdrop-blur-sm rounded-full px-2 sm:px-3 py-1"
           animate={{
             opacity: isHovered ? 1 : 0,
           }}
           transition={{ duration: 0.3 }}
         >
           {item.type === "video" ? (
-            <Play size={12} className="text-gray-900 sm:w-4 sm:h-4" />
+            <Play size={12} className="text-white sm:w-4 sm:h-4" />
           ) : (
-            <Maximize2 size={12} className="text-gray-900 sm:w-4 sm:h-4" />
+            <Maximize2 size={12} className="text-white sm:w-4 sm:h-4" />
           )}
-          <span className="text-xs text-gray-900 uppercase tracking-wider hidden sm:block">{item.type}</span>
+          <span className="text-xs text-white uppercase tracking-wider hidden sm:block">{item.type}</span>
         </motion.div>
 
         <motion.div
@@ -336,8 +269,6 @@ function ToggleSwitch({ checked, onChange, label }: ToggleSwitchProps) {
   )
 }
 
-
-
 export default function GymPortfolio() {
   const [hoveredItem, setHoveredItem] = useState<number | null>(null)
   const [autoPlay, setAutoPlay] = useState(true)
@@ -373,44 +304,76 @@ export default function GymPortfolio() {
           
           <div className="block lg:hidden mb-6">
             <div className="text-center mb-4">
-              <h1 className="text-2xl sm:text-3xl font-semibold text-black mb-1">
-                LaSalle Gallery
-              </h1>
-              <div className="w-20 h-0.5 bg-black mx-auto mb-3"></div>
-              <h3 className="text-lg sm:text-xl font-semibold text-purple-600 mb-2">See Our Workout Gallery</h3>
-              <p className="text-sm text-gray-600 leading-relaxed px-4">
-                Explore our state-of-the-art facilities and diverse workout programs designed for all fitness levels.
-              </p>
+               <motion.div
+                  initial={{ opacity: 0, y: -20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5 }}
+                  viewport={{ once: true }}
+                >
+                  <h2 className="text-xl font-normal uppercase tracking-wider text-purple-600 mb-2">
+                      Notre Galerie
+                  </h2>
+                  <div className="w-16 h-px bg-purple-300 mx-auto" />
+              </motion.div>
+              <motion.h3
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.2, duration: 0.5 }}
+                  viewport={{ once: true }}
+                  className="text-xl font-bold text-gray-900 leading-tight mt-3"
+              >
+                  L'Énergie en Mouvement, <br/>
+                  <span className="text-primary">Votre Motivation en Images.</span>
+              </motion.h3>
             </div>
           </div>
 
           <div className="hidden lg:block">
-            <div className="mb-6">
-              <h1 className="text-3xl lg:text-4xl xl:text-5xl font-semibold text-black mb-3">
-                LaSalle Gallery
-              </h1>
-              <div className="w-24 h-0.5 bg-black mb-4"></div>
-              <h3 className="text-xl lg:text-2xl font-semibold text-purple-600 mb-4">See Our Workout Gallery</h3>
-              <div className="text-sm lg:text-base text-gray-600 leading-relaxed space-y-3">
+            <motion.div
+                initial={{ opacity: 0, y: -20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5 }}
+                viewport={{ once: true }}
+            >
+                <div className="flex items-center">
+                    <h2 className="text-2xl md:text-3xl font-normal uppercase tracking-wider text-purple-600 mr-4">
+                        Notre Galerie
+                    </h2>
+                    <div className="flex-grow h-px bg-purple-300" />
+                </div>
+            </motion.div>
+            <motion.h3
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.2, duration: 0.5 }}
+                viewport={{ once: true }}
+                className="text-2xl md:text-3xl font-bold text-gray-900 leading-tight mt-4"
+            >
+                L'Énergie en Mouvement, <br/>
+                <span className="text-primary">Votre Motivation en Images.</span>
+            </motion.h3>
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.3, duration: 0.5 }}
+              viewport={{ once: true }}
+              className="mt-6 text-sm lg:text-base text-gray-600 leading-relaxed space-y-3"
+            >
                 <p>
                   Découvrez notre réseau de salles de sport au Maroc. Nous sommes une équipe passionnée de professionnels de la remise en forme qui se sont réunis pour créer un espace de fitness exceptionnel pour tous les niveaux et tous les objectifs.
                 </p>
                 <p>
-                  Nous croyons en l'importance d'un mode de vie actif et équilibré pour améliorer la santé et le bien-être, et nous sommes déterminés à aider nos membres à atteindre leurs objectifs de fitness et de santé grâce à notre équipement de pointe, nos programmes d'entraînement personnalisés et notre environnement accueillant et motivant.
+                  Nous croyons en l'importance d'un mode de vie actif et équilibré pour améliorer la santé et le bien-être, et nous sommes déterminés à aider nos membres à atteindre leurs objectifs.
                 </p>
-                <p>
-                  Nous sommes impatients de vous accueillir dans notre communauté de fitness et de vous aider à réaliser votre plein potentiel.
-                </p>
-              </div>
-            </div>
+            </motion.div>
           </div>
         </div>
 
         <div className="flex-1">
           
           <div className="flex flex-wrap items-center gap-4 mb-4 lg:mb-6">
-            <ToggleSwitch checked={showFrames} onChange={setShowFrames} label="Gallery Frames" />
-            <ToggleSwitch checked={autoPlay} onChange={setAutoPlay} label="Auto Play Videos" />
+            <ToggleSwitch checked={showFrames} onChange={setShowFrames} label="Afficher les cadres" />
+            <ToggleSwitch checked={autoPlay} onChange={setAutoPlay} label="Lecture auto. vidéos" />
             <ToggleSwitch 
               checked={!muted} 
               onChange={(checked) => setMuted(!checked)} 

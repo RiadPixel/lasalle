@@ -5,33 +5,34 @@ import { IoArrowBack, IoArrowForward } from "react-icons/io5";
 const testimonials = [
   {
     id: 1,
-    name: "Emily H.",
-    text: "I've been a member of MURA for over a year, and I can't imagine my fitness routine without it. The group classes are my favorite - they're challenging, fun, and led by enthusiastic instructors.",
+    name: "Yasmine B.",
+    text: "Je suis membre de MURA depuis plus d’un an et je ne peux pas imaginer ma routine fitness sans eux. Les cours collectifs sont mes préférés – ils sont stimulants, amusants et animés par des coachs passionnés.",
     avatar:
       "https://plus.unsplash.com/premium_photo-1663045836063-b89d0223ef99?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OXx8Z3ltJTIwcGVyc29ufGVufDB8fDB8fHww",
   },
   {
     id: 2,
-    name: "Alexandra T.",
-    text: "Joining Lasalle was the best decision I made for my fitness journey. The trainers are incredibly supportive and knowledgeable. The community is incredible, making every workout enjoyable.",
+    name: "Abdelali T.",
+    text: "Rejoindre Lasalle a été la meilleure décision pour mon parcours fitness. Les coachs sont incroyablement attentifs et compétents. La communauté est formidable, rendant chaque séance agréable.",
     avatar:
       "https://images.unsplash.com/photo-1647780796058-66b174e97d5f?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8Z3ltJTIwcGVyc29ufGVufDB8fDB8fHww",
   },
   {
     id: 3,
-    name: "Michael R.",
-    text: "The facilities are top-notch and the equipment is always well-maintained. I've seen incredible results since joining Lasalle, and the motivation from both trainers and fellow members keeps me coming back.",
+    name: "Omar R.",
+    text: "Les installations sont excellentes et le matériel toujours bien entretenu. J’ai obtenu des résultats incroyables depuis que j’ai rejoint Lasalle, et la motivation des coachs ainsi que des autres membres me pousse à revenir.",
     avatar:
       "https://images.unsplash.com/photo-1491756975177-a13d74ed1e2f?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mjh8fGd5bSUyMHBlcnNvbnxlbnwwfHwwfHx8MA%3D%3D",
   },
   {
     id: 4,
-    name: "Sarah K.",
-    text: "What sets Lasalle apart is the personalized attention and diverse class offerings. Whether it's yoga, HIIT, or strength training, there's something for everyone at every fitness level.",
+    name: "Imane K.",
+    text: "Ce qui distingue Lasalle, c’est l’attention personnalisée et la variété des cours proposés. Que ce soit du yoga, du HIIT ou du renforcement musculaire, il y a toujours une option adaptée à chaque niveau.",
     avatar:
       "https://plus.unsplash.com/premium_photo-1674059550127-91a5aa9d1195?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8Z3ltJTIwcGVyc29ufGVufDB8fDB8fHww",
   },
 ];
+
 
 const profileImages = testimonials.map((t) => t.avatar);
 
@@ -83,14 +84,14 @@ export default function Testimonial() {
     <div className="w-[95%] mx-auto py-16 bg-white px-4">
 
       <div className="mb-12 text-left">
-        <h2 className="mb-1 text-sm font-bold tracking-widest text-gray-500 uppercase md:text-base">
-          REVIEWS
+        <h2 className="mb-1 text-sm font-bold tracking-widest text-purple-500 uppercase md:text-base">
+          Avis
         </h2>
-        <h1 className="text-5xl font-black tracking-tighter text-gray-900 md:text-6xl lg:text-7xl">
-          FROM YOU
+        <h1 className="text-5xl font-black tracking-tighter text-gray-900 md:text-5xl lg:text-6xl">
+        DE VOUS
         </h1>
       </div>
-
+ 
       <div className="flex flex-col items-center gap-8 lg:flex-row lg:items-start lg:gap-28">
         <div className="flex justify-center flex-shrink-0 lg:grid lg:grid-cols-2 lg:gap-6">
           {profileImages.map((image, index) => (

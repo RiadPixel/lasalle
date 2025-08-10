@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-import ForYou from "./components/ForYou";
+
 import Hero from "./components/Hero";
 import Loader from "./components/Loader";
 import Navbar from "./components/navbar";
@@ -8,7 +8,6 @@ import Pricing from "./components/Pricing";
 import Footer from "./components/Footer";
 import Testimonial from "./components/Testimonial";
 import Contact from "./components/Contact";
-import WithUs from "./components/WithUs";
 import About from "./components/AboutUs";
 import Portfolio from "./components/portfolio";
 import ContactSection from "./components/ContactSection";

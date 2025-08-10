@@ -8,15 +8,16 @@ import { AnimatePresence } from "framer-motion";
 function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  const [activeLink, setActiveLink] = useState("Home");
+  const [activeLink, setActiveLink] = useState("Accueil");
   const [hoveredLink, setHoveredLink] = useState<string | null>(null);
+
   const links = [
-    { name: "Home", href: "#home" },
-    { name: "For You", href: "#foryou" },
+    { name: "Accueil", href: "#home" },
+    { name: "À Propos", href: "#about" },
+    { name: "Coachs", href: "#trainers" },
     { name: "Planning", href: "#planning" },
-    { name: "Coaches", href: "#coaches" },
-    { name: "Pricing", href: "#pricing" },
-    { name: "Reviews", href: "#reviews" },
+    { name: "Tarifs", href: "#pricing" },
+    { name: "Avis", href: "#reviews" },
   ];
 
   const handleLinkClick = (
@@ -64,12 +65,12 @@ function Navbar() {
         ${
           scrolled
             ? "top-4 mx-auto w-[94%] rounded-xl border-b border-gray-200 bg-white shadow-md"
-            : "top-0 w-full bg-transparent lg:w-[94%] lg:mx-auto"
+            : "top-0 w-full bg-transparent 2xl:w-[94%] 2xl:mx-auto"
         }
       `}
     >
       <div className="relative mx-auto flex w-full items-center justify-between px-4 py-3 xl:px-6">
-        <div className="lg:hidden">
+        <div className="2xl:hidden">
           <motion.img
             src={logo}
             alt="Your Logo"
@@ -79,7 +80,7 @@ function Navbar() {
           />
         </div>
 
-        <div className="relative hidden flex-grow items-center justify-start space-x-6 lg:flex">
+        <div className="relative hidden flex-grow items-center justify-start space-x-6 2xl:flex">
           {links.map((link) => (
             <a
               key={link.name}
@@ -101,7 +102,7 @@ function Navbar() {
           ))}
         </div>
 
-        <div className="hidden flex-shrink-0 lg:absolute lg:left-1/2 lg:block lg:-translate-x-1/2 lg:transform">
+        <div className="hidden flex-shrink-0 2xl:absolute 2xl:left-1/2 2xl:block 2xl:-translate-x-1/2 2xl:transform">
           <motion.img
             src={logo}
             alt="Logo"
@@ -111,24 +112,24 @@ function Navbar() {
           />
         </div>
 
-        <div className="hidden flex-grow items-center justify-end space-x-3 lg:flex">
+        <div className="hidden flex-grow items-center justify-end space-x-3 2xl:flex">
           <button
             className="hidden h-12 min-w-[140px] items-center justify-center whitespace-nowrap rounded-lg border-2 border-purple-600 bg-white px-8 py-2 text-sm font-bold text-purple-700 ring-offset-background transition-all duration-150 ease-in-out hover:rounded-full focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-purple-600 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 md:inline-flex"
             onClick={() => window.dispatchEvent(new CustomEvent('openContactForm', { detail: { tab: 'reserve' } }))}
           >
-            Reserve
+            Réserver
           </button>
           <button className="hidden h-12 min-w-[140px] items-center justify-center whitespace-nowrap rounded-lg border-2 border-black bg-[#a78bfa] px-8 py-2 text-sm font-bold text-black ring-offset-background transition-all duration-150 ease-in-out hover:rounded-full focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 md:inline-flex"
             onClick={() => window.dispatchEvent(new Event('openContactForm'))}
           >
-            Contact Us
+            Contactez-nous
           </button>
           <div className="hidden items-center space-x-2 md:flex">
             <a
               href="#"
               aria-label="Instagram"
               title="Instagram"
-              className="rounded-full p-2 text-gray-600 transition-colors duration-200 hover:bg-purple-100 hover:text-purple-600"
+              className="rounded-lg p-2 text-gray-600 transition-colors duration-200 hover:bg-purple-100 hover:text-purple-600"
             >
               <Instagram size={20} />
             </a>
@@ -136,7 +137,7 @@ function Navbar() {
               href="#"
               aria-label="Facebook"
               title="Facebook"
-              className="rounded-full p-2 text-gray-600 transition-colors duration-200 hover:bg-purple-100 hover:text-purple-600"
+              className="rounded-lg p-2 text-gray-600 transition-colors duration-200 hover:bg-purple-100 hover:text-purple-600"
             >
               <Facebook size={20} />
             </a>
@@ -144,7 +145,7 @@ function Navbar() {
               href="#"
               aria-label="TikTok"
               title="TikTok"
-              className="rounded-full p-2 text-gray-600 transition-colors duration-200 hover:bg-purple-100 hover:text-purple-600"
+              className="rounded-lg p-2 text-gray-600 transition-colors duration-200 hover:bg-purple-100 hover:text-purple-600"
             >
               <SiTiktok size={20} />
             </a>
@@ -153,7 +154,7 @@ function Navbar() {
 
         <button
           onClick={toggleMenu}
-           className="z-[9999] p-2 text-gray-600 hover:text-purple-600 lg:hidden"
+           className="z-[9999] p-2 text-gray-600 hover:text-purple-600 2xl:hidden"
         >
           {isOpen ? (
             <X size={24} strokeWidth={3} className="text-purple-600" />
@@ -166,7 +167,7 @@ function Navbar() {
       <AnimatePresence>
         {isOpen && (
           <motion.div
-            className="fixed inset-0 z-[9998] flex flex-col items-center bg-white lg:hidden"
+            className="fixed inset-0 z-[9998] flex flex-col items-center bg-white 2xl:hidden"
             initial="closed"
             animate="open"
             exit="closed"
@@ -207,7 +208,7 @@ function Navbar() {
                   setIsOpen(false);
                 }}
               >
-                Contact Us
+                Contactez-nous
               </button>
               <button
                 className="w-full max-w-xs rounded-lg border-2 border-purple-600 bg-white px-6 py-3 text-xl font-bold text-purple-700 transition-all duration-100 ease-in-out hover:rounded-full hover:bg-purple-50"
@@ -216,7 +217,7 @@ function Navbar() {
                   setIsOpen(false);
                 }}
               >
-                Reserve
+                Réserver
               </button>
             </div>
             
@@ -226,7 +227,7 @@ function Navbar() {
                 href="#"
                 aria-label="Instagram"
                 title="Instagram"
-                className="rounded-full p-3 text-gray-600 transition-colors duration-200 hover:bg-purple-100 hover:text-purple-600"
+                className="rounded-lg p-3 text-gray-600 transition-colors duration-200 hover:bg-purple-100 hover:text-purple-600"
                 onClick={(e) => { e.preventDefault(); toggleMenu(); }}
               >
                 <Instagram size={28} />
@@ -235,7 +236,7 @@ function Navbar() {
                 href="#"
                 aria-label="Facebook"
                 title="Facebook"
-                className="rounded-full p-3 text-gray-600 transition-colors duration-200 hover:bg-purple-100 hover:text-purple-600"
+                className="rounded-lg p-3 text-gray-600 transition-colors duration-200 hover:bg-purple-100 hover:text-purple-600"
                 onClick={(e) => { e.preventDefault(); toggleMenu(); }}
               >
                 <Facebook size={28} />
@@ -244,7 +245,7 @@ function Navbar() {
                 href="#"
                 aria-label="TikTok"
                 title="TikTok"
-                className="rounded-full p-3 text-gray-600 transition-colors duration-200 hover:bg-purple-100 hover:text-purple-600"
+                className="rounded-lg p-3 text-gray-600 transition-colors duration-200 hover:bg-purple-100 hover:text-purple-600"
                 onClick={(e) => { e.preventDefault(); toggleMenu(); }}
               >
                 <SiTiktok size={28} />

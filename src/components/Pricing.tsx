@@ -21,35 +21,35 @@ function Pricing() {
 
   const pricingOptions = [
     {
-      title: "ONE DAY",
-      subtitle: "PASS",
-      price: "$15",
-      period: "Per Day",
+      title: "PASS JOURNALIER",
+      subtitle: "",
+      price: "150 Dhs",
+      period: "/jour",
       description:
-        "Whether you're visiting F7 on business or are just taking your personal fitness one day at a time, we'd like to invite you to experience all that F7 has to offer. You are always Welcome!",
+        "Que vous soyez de passage ou que vous souhaitiez simplement tester nos installations, notre pass journalier vous donne un accès complet à tout ce que notre club a à offrir. Vous êtes toujours le bienvenu !",
     },
     {
-      title: "MONTHLY",
-      subtitle: "PASS",
-      price: "$90",
-      period: "Per month",
+      title: "ABONNEMENT MENSUEL",
+      subtitle: "",
+      price: "900 Dhs",
+      period: "/mois",
       description:
-        "Our monthly membership helps you to keep your fitness goals on track without a commitment of any kind, while still enjoying all of the amenities that F7 has to offer.",
+        "Notre formule mensuelle flexible vous aide à atteindre vos objectifs sans engagement à long terme, tout en profitant de tous les équipements et cours collectifs de notre club.",
     },
     {
-      title: "YEARLY",
-      subtitle: "PASS",
-      price: "$59",
-      period: "Per month",
+      title: "ABONNEMENT ANNUEL",
+      subtitle: "",
+      price: "590 Dhs",
+      period: "/mois",
       description:
-        "With a 1-year commitment, we offer a monthly membership for only $59. When you pre-purchase a complete year individual membership you get 2/m Free Extension.",
+        "Engagez-vous sur le long terme et profitez de notre meilleur tarif. Avec un paiement annuel, nous vous offrons 2 mois supplémentaires gratuits. L'investissement ultime dans votre bien-être.",
     },
   ];
 
   return (
     <section className="w-full bg-transparent py-6 sm:py-8 md:py-10 px-2 sm:px-4">
       <div
-        className="text-center text-primary-foreground bg-gradient-to-br from-purple-500 via-purple-600 to-purple-700 p-3 sm:p-4 md:p-6 lg:p-12 rounded-3xl overflow-hidden relative"
+        className="text-primary-foreground bg-gradient-to-br from-purple-500 via-purple-600 to-purple-700 p-3 sm:p-4 md:p-6 lg:p-12 rounded-3xl overflow-hidden relative"
         style={{ backgroundColor: "#8B5CF6" }}
       >
         {/* Aggressive White Lines Background */}
@@ -102,17 +102,17 @@ function Pricing() {
           <div className="flex flex-col lg:flex-row justify-between items-center lg:items-start mb-8 sm:mb-12 lg:mb-16 w-full text-white">
             <div className="bg-white rounded-sm px-4 sm:px-6 md:px-8 py-2 sm:py-3 flex items-center gap-2 sm:gap-3 shadow-lg flex-shrink-0 mb-4 sm:mb-6 lg:mb-0 text-gray-800 transition-all duration-300 hover:scale-105 hover:shadow-xl active:scale-95 group">
               <span className="text-sm sm:text-base font-semibold">
-                Personal Training
+                Coaching Personnel
               </span>
               <ArrowDownCircle className="w-5 h-5 sm:w-6 sm:h-6 transition-transform duration-300 group-hover:translate-y-1" />
             </div>
 
             <div className="text-center lg:text-right flex-grow">
               <p className="text-[10px] sm:text-xs font-bold tracking-[0.2em] uppercase opacity-90 mb-1 sm:mb-2">
-                PRICING PLAN
+                NOS FORMULES
               </p>
               <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black tracking-tight">
-                JOIN TODAY
+                REJOIGNEZ-NOUS
               </h1>
             </div>
           </div>
@@ -162,7 +162,7 @@ function Pricing() {
                   <p
                     className={`text-xl sm:text-2xl md:text-3xl font-bold mb-3 sm:mb-4 md:mb-6 text-left ${selectedCard === index ? "text-gray-900" : "text-white"}`}
                   >
-                    <span className="font-bold">{option.price}</span>/
+                    <span className="font-bold">{option.price}</span>
                     {option.period}
                   </p>
                   <p
@@ -177,7 +177,7 @@ function Pricing() {
 
           <div className="flex justify-end mt-12 sm:mt-16 lg:mt-20 w-full">
             <button className="bg-white hover:bg-gray-50 text-black font-bold py-2 px-4 sm:px-6 rounded-full transition-all duration-300 hover:scale-105 hover:shadow-xl active:scale-95 shadow-lg text-sm sm:text-base">
-              Order Now
+              Choisir ce plan
             </button>
           </div>
         </div>

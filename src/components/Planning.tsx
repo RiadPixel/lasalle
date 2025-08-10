@@ -249,24 +249,41 @@ const Planning = () => {
       
       <div className="relative w-full max-w-7xl mx-auto z-10 px-4 sm:px-6 lg:px-8">
      
-        <div className="text-center mb-8 sm:mb-12">
-          <motion.h2 
-            className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold text-gray-900 mb-4 sm:mb-6 tracking-tight"
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.1 }}
-          >
-            Planning d'Entraînement
-          </motion.h2>
-          <motion.p 
-            className="text-base sm:text-lg lg:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-          >
-            Découvrez nos programmes d'entraînement spécialement conçus pour hommes et femmes. 
-            Sélectionnez un jour pour voir le planning détaillé.
-          </motion.p>
+        <div className="mb-12">
+            <motion.div
+                initial={{ opacity: 0, y: -20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5 }}
+                viewport={{ once: true }}
+            >
+                <div className="flex items-center">
+                    <h2 className="text-2xl md:text-3xl font-normal uppercase tracking-wider text-purple-600 mr-4">
+                        Planning d'Entraînement
+                    </h2>
+                    <div className="flex-grow h-px bg-purple-300" />
+                </div>
+            </motion.div>
+
+            <motion.h3
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.2, duration: 0.5 }}
+                viewport={{ once: true }}
+                className="text-3xl md:text-4xl font-bold text-gray-900 leading-tight mt-4"
+            >
+                Planifiez Votre Succès, <br/>
+                <span className="text-primary">Chaque Jour, Un Nouveau Défi.</span>
+            </motion.h3>
+
+            <motion.p
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.3, duration: 0.5 }}
+                viewport={{ once: true }}
+                className="mt-6 text-base max-w-2xl text-gray-600"
+            >
+                Découvrez nos programmes d'entraînement spécialement conçus pour hommes et femmes. Sélectionnez un jour pour voir le planning détaillé.
+            </motion.p>
         </div>
 
     
@@ -340,27 +357,7 @@ const Planning = () => {
             transition={{ duration: 0.5 }}
             className="max-w-6xl mx-auto"
           >
-         
-            <div className="text-center mb-6 sm:mb-8">
-              <motion.h3 
-                className="text-2xl sm:text-3xl font-bold text-gray-900 mb-2 sm:mb-4"
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ duration: 0.5, delay: 0.1 }}
-              >
-                {scheduleData[activeTab].title}
-              </motion.h3>
-              <motion.p 
-                className="text-sm sm:text-lg text-gray-600"
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ duration: 0.5, delay: 0.2 }}
-              >
-                {scheduleData[activeTab].description}
-              </motion.p>
-            </div>
-
-                          
+     
               <div className="block sm:hidden mb-6">
                 <div className="flex justify-center">
                   <motion.button

@@ -56,26 +56,44 @@ const ContactSection = () => {
       />
       
       <div className="relative w-full max-w-7xl mx-auto z-10 px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <motion.h2 
-            className="text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-900 mb-6 tracking-tight"
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.1 }}
-          >
-            Let's Get in Touch
-          </motion.h2>
-          <motion.p 
-            className="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-          >
-            Vous avez des questions ou souhaitez réserver une séance d'essai ? 
-            Contactez-nous ou réservez directement !
-          </motion.p>
-        </div>
+        
+        <div className="mb-12">
+            <motion.div
+                initial={{ opacity: 0, y: -20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5 }}
+                viewport={{ once: true }}
+            >
+                <div className="flex items-center">
+                    <h2 className="text-2xl md:text-3xl font-normal uppercase tracking-wider text-purple-600 mr-4">
+                        Contactez-Nous
+                    </h2>
+                    <div className="flex-grow h-px bg-purple-300" />
+                </div>
+            </motion.div>
 
+            <motion.h3
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.2, duration: 0.5 }}
+                viewport={{ once: true }}
+                className="text-3xl md:text-4xl font-bold text-gray-900 leading-tight mt-4"
+            >
+                Une Question, Un Projet? <br/>
+                <span className="text-primary">N'hésitez Pas à Nous Écrire.</span>
+            </motion.h3>
+
+            <motion.p
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.3, duration: 0.5 }}
+                viewport={{ once: true }}
+                className="mt-6 text-base max-w-2xl text-gray-600"
+            >
+                Vous avez des questions ou souhaitez réserver une séance d'essai ? 
+                Contactez-nous ou réservez directement !
+            </motion.p>
+        </div>
         <motion.div 
           className="flex justify-center mb-8"
           initial={{ opacity: 0, y: 20 }}
@@ -290,7 +308,7 @@ const ContactSection = () => {
                     referrerPolicy="no-referrer-when-downgrade"
                     className="w-full h-full"
                   />
-              
+                
                   <div className="absolute inset-0 pointer-events-none">
                     <div className="absolute top-4 left-4 bg-white rounded-lg px-3 py-2 shadow-lg">
                       <div className="flex items-center space-x-2">

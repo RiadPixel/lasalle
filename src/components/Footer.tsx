@@ -188,7 +188,7 @@ const Footer = () => {
                   />
                   <span>New Schedule?</span>
                 </p>
-                <p className="inline-block break-all rounded-lg bg-white bg-opacity-10 px-2 py-1 text-sm font-bold text-yellow-300 transition-all duration-300 hover:scale-105 hover:bg-white hover:bg-opacity-20 sm:px-3 sm:text-lg">
+                <p className="inline-block break-all rounded-lg bg-white bg-opacity-10 px-2 py-1 text-sm font-bold text-purple-400 transition-all duration-300 hover:scale-105 hover:bg-white hover:bg-opacity-20 sm:px-3 sm:text-lg">
                   +212 522 66 44 66
                 </p>
               </div>

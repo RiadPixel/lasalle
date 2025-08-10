@@ -136,7 +136,7 @@ export default function TrainersTeam() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.2, duration: 0.5 }}
               viewport={{ once: true }}
-              className={`text-4xl md:text-5xl font-bold ${headingColorClass} leading-tight`}
+              className={`text-3xl md:text-4xl font-bold ${headingColorClass} leading-tight`}
             >
               Votre forme, <br/>
               <span className={accentHeadingColorClass}>Leurs expertises, vos objectifs</span>
